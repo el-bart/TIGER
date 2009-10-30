@@ -1,0 +1,12 @@
+use ATTiny2313-20PU uC (20pin DIL)
+
+it has:
+- 128[B] SRAM
+- 4[KB] FLASH
+- 128[B] EEPROM
+- up to 20MHz
+- USART
+- SPI
+- 1x8-bit timer
+- 1x16-bit timer
+
