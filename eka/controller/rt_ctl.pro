@@ -1,25 +1,25 @@
 EAGLE AutoRouter Statistics:
 
-Job           : /home/el-bart/prjs/TIGER/rt_ctl/rt_ctl.brd
+Job           : /home/el-bart/prjs/TIGER/eka/controller/rt_ctl.brd
 
-Start at      : 10:38:30 (12/13/09)
-End at        : 10:38:49 (12/13/09)
-Elapsed time  : 00:00:19
+Start at      : 16:31:05 (12/20/09)
+End at        : 16:31:08 (12/20/09)
+Elapsed time  : 00:00:03
 
-Signals       :    29   RoutingGrid: 59.0551 mil  Layers: 1
-Connections   :    54   predefined:  4 ( 0 Vias )
+Signals       :    36   RoutingGrid: 50 mil  Layers: 1
+Connections   :    67   predefined:  1 ( 0 Vias )
 
-Router memory :   10064
+Router memory :   13416
 
 Passname          :     Route Optimize1 Optimize2 Optimize3 Optimize4
 
-Time per pass     :  00:00:18  00:00:00  00:00:01  00:00:00  00:00:00
-Number of Ripups  :       712         0         0         0         0
-max. Level        :         6         0         0         0         0
-max. Total        :        25         0         0         0         0
+Time per pass     :  00:00:03  00:00:00  00:00:00  00:00:00  00:00:00
+Number of Ripups  :       230         0         0         0         0
+max. Level        :         8         0         0         0         0
+max. Total        :        26         0         0         0         0
 
-Routed            :        39        39        39        39        39
+Routed            :        65        65        65        65        65
 Vias              :         0         0         0         0         0
-Resolution        :    79.6 %    79.6 %    79.6 %    79.6 %    79.6 %
+Resolution        :    98.5 %    98.5 %    98.5 %    98.5 %    98.5 %
 
-Final             : 79.6% finished
+Final             : 98.5% finished
