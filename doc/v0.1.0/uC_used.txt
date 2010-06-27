@@ -1,12 +1,11 @@
-use ATTiny2313-20PU uC (20pin DIL)
+use ATmega8 uC (28pin DIL)
 
 it has:
-- 128[B] SRAM
-- 4[KB] FLASH
-- 128[B] EEPROM
-- up to 20MHz
+- 1024[B] SRAM
+- 8[KB] FLASH
+- 512[B] EEPROM
+- up to 16MHz
 - USART
 - SPI
-- 1x8-bit timer
+- 2x8-bit timer
 - 1x16-bit timer
-
