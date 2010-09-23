@@ -1,0 +1,1 @@
+* eagle saved two separate GNDs, instead of just one (see GND of LM7805-2 and X2-1)
