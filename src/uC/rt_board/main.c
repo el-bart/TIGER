@@ -16,6 +16,14 @@ int main(void)
 {
   // one big TODO !
 
+  DDRD=(1 << PB5);
+  PORTD=_BV(5);
+
+
+  for(;;)
+  {
+  }
+
   return 0;
 } // main()
 
