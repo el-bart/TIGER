@@ -1,2 +1,3 @@
 * eagle saved two separate GNDs, instead of just one (see GND of LM7805-2 and X2-1)
 * transistor T1's base should be powered via resisotr (10-100kR)
+* foto-sensor input should be gold-pin compatible
