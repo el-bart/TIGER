@@ -1,0 +1,15 @@
+PB1 - OC1A / PWM left
+PB2 - OC1B / PWM right
+
+PC0 - right engine backward
+PC1 - right engine forward
+PC2 - left engine backward
+PC3 - left engine forward
+
+PD0 - RXD
+PD1 - TXD
+
+PD2 - INT0 / left engine
+PD3 - INT1 / right engine
+
+PD5 - LED
