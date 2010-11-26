@@ -7,6 +7,9 @@
 #include <avr/io.h>
 #include <util/delay.h>     // <avr/delay.h> once
 
+#include "usart.h"
+#include "assert.h"
+
 
 
 //
@@ -38,6 +41,9 @@ int main(void)
   DDRD&=~_BV(3);
   PORTD|=_BV(2);
   PORTD|=_BV(3);
+
+  usart_init();
+  assert(0);
 
   // forward state
   for(;;)

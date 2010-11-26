@@ -31,19 +31,11 @@ void assert_internal_implementation(int cond, uint16_t line, const char *file)
 {
   if(cond)
     return;
+
   // assert goes here:
-  cli();    // clear interrupts
+  cli();    // disable interrupts
   while(1)
   {
-    //
-    // blink led
-    //
-
-    PORTD&=~_BV(5); // LED on
-    _delay_ms(250);
-    PORTD+= _BV(5); // LED off
-    _delay_ms(250);
-
     //
     // send debug data to terminal
     //
@@ -63,5 +55,15 @@ void assert_internal_implementation(int cond, uint16_t line, const char *file)
     // send end-of-line
     for(const char *tmp="\r\n"; *tmp!=0; ++tmp)
       debug_send_char(*tmp);
-  }
+
+    //
+    // blink led
+    //
+
+    PORTD|= _BV(5); // LED on
+    _delay_ms(250);
+    PORTD&=~_BV(5); // LED off
+    _delay_ms(250);
+
+  } // while(true)
 }
