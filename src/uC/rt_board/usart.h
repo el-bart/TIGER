@@ -8,17 +8,14 @@
 #include <stdio.h>
 #include <inttypes.h>
 
-typedef uint8_t byte;
-
-
 void usart_init(void);
 
-void usart_send(byte b);
+void usart_send(uint8_t b);
 
-void usart_send_array(byte *b, size_t size);
+void usart_send_array(uint8_t *b, size_t size);
 
 size_t usart_inqueue_size(void);
 
-byte usart_receive(void);
+uint8_t usart_receive(void);
 
 #endif
