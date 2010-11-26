@@ -3,8 +3,8 @@
  *
  */
 #include <util/atomic.h>
-#include <assert.h>
 
+#include "assert.h"
 #include "queue.h"
 
 void queue_init(struct queue_data *q)

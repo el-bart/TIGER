@@ -2,8 +2,7 @@
  * usart.c
  *
  */
-#include <assert.h>
-
+#include "assert.h"
 #include "usart.h"
 #include "config.h"
 
