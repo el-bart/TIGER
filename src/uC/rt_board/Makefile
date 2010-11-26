@@ -72,22 +72,22 @@ export TEST_PROGRAM_NAME
 all: release
 
 .PHONY: debug
-debug: CFLAGS+=-g3
-debug: CXXFLAGS+=-g3
+debug: CFLAGS+=-O3 -Os
+debug: CXXFLAGS+=-O3 -Os
 debug: TARGET:=all
 debug:
 	@$(run-in-gen)
 
 .PHONY: release
-release: CFLAGS+=-O3 -DNDEBUG
-release: CXXFLAGS+=-O3 -DNDEBUG
+release: CFLAGS+=-O3 -Os -DNDEBUG
+release: CXXFLAGS+=-O3 -Os -DNDEBUG
 release: TARGET:=all
 release:
 	@$(run-in-gen)
 
 .PHONY: profile
-profile: CFLAGS+=-pg -DNDEBUG -O3 -g
-profile: CXXFLAGS+=-pg -DNDEBUG -O3 -g
+profile: CFLAGS+=-pg -DNDEBUG -O3 -g3
+profile: CXXFLAGS+=-pg -DNDEBUG -O3 -g3
 profile: LDFLAGS+=-pg
 profile: TARGET:=all
 profile:
