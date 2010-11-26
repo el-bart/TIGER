@@ -12,4 +12,7 @@
 // quarc frequency in [Hz]
 #define F_CPU (8L*MHz)
 
+// USART speed (bps)
+#define USART_BAUD (19200L)
+
 #endif
