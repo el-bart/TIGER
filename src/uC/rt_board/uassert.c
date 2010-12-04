@@ -29,8 +29,9 @@ static void debug_send_hex(uint8_t h)
 
 void uassert_internal_implementation(uint16_t line, const char *file)
 {
-  // assert goes here:
   cli();    // disable interrupts
+
+  // loop forever sending asseration details and blinking the led
   while(1)
   {
     //
