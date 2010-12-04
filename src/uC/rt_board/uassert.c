@@ -27,11 +27,8 @@ static void debug_send_hex(uint8_t h)
 
 }
 
-void uassert_internal_implementation(int cond, uint16_t line, const char *file)
+void uassert_internal_implementation(uint16_t line, const char *file)
 {
-  if(cond)
-    return;
-
   // assert goes here:
   cli();    // disable interrupts
   while(1)
