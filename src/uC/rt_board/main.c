@@ -56,6 +56,10 @@ int main(void)
   {
     uint8_t c=usart_receive();
     usart_send(c+1);
+    usart_send(c+2);
+    usart_send(c+3);
+    usart_send('\r');
+    usart_send('\n');
   }
 
   uassert(!"TODO");
