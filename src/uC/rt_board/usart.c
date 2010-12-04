@@ -6,7 +6,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-#include "assert.h"
+#include "uassert.h"
 #include "usart.h"
 #include "queue.h"
 
@@ -86,7 +86,7 @@ void usart_send(uint8_t b)
 
 void usart_send_array(uint8_t *b, size_t size)
 {
-  assert(b!=NULL);
+  uassert(b!=NULL);
   for(size_t i=0; i<size; ++i)
     usart_send(b[i]);
 }

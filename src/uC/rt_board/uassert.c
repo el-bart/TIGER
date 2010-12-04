@@ -1,5 +1,5 @@
 /*
- * assert.c
+ * uassert.c
  *
  */
 #include "config.h"
@@ -7,7 +7,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-#include "assert.h"
+#include "uassert.h"
 
 static void debug_send_char(uint8_t c)
 {
@@ -27,7 +27,7 @@ static void debug_send_hex(uint8_t h)
 
 }
 
-void assert_internal_implementation(int cond, uint16_t line, const char *file)
+void uassert_internal_implementation(int cond, uint16_t line, const char *file)
 {
   if(cond)
     return;
