@@ -5,11 +5,18 @@
 #include "config.h"         // this file must be included as first one!
 
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include <util/delay.h>     // <avr/delay.h> once
 
 #include "usart.h"
 #include "uassert.h"
 
+
+// handle unknown interruption(s)
+ISR(BADISR_vect)
+{
+  uassert(!"unhandled interrupt");
+}
 
 
 //
@@ -43,7 +50,15 @@ int main(void)
   PORTD|=_BV(3);
 
   usart_init();
-  uassert(0);
+  sei();
+
+  for(int i=0; i<10; ++i)
+  {
+    uint8_t c=usart_receive();
+    usart_send(c+1);
+  }
+
+  uassert(!"TODO");
 
   // forward state
   for(;;)
