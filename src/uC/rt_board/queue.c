@@ -88,6 +88,7 @@ uint8_t queue_pop(struct queue_data *q)
 void queue_pop_count(struct queue_data *q, size_t n)
 {
   uassert(q!=NULL);
+  uassert( queue_size(q)>=n );
   for(size_t i=0; i<n; ++i)
     queue_pop(q);
 }
