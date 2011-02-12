@@ -5,10 +5,10 @@
 #ifndef INCLUDE_QUEUE_HPP_FILE
 #define INCLUDE_QUEUE_HPP_FILE
 
+#include "config.hpp"
+
 #include <stdio.h>
 #include <inttypes.h>
-
-#include "config.hpp"
 
 /** \brief data FIFO queue of a compile-time-defined size.
  */
@@ -55,9 +55,10 @@ public:
   void popCount(size_t n);
 
 private:
-  uint8_t queue_[QUEUE_MAX_SIZE];
-  size_t  begin_;
-  size_t  size_;
+  // NOTE: these variables better be volatile, since they are in use in interrupts.
+  volatile uint8_t queue_[QUEUE_MAX_SIZE];
+  volatile size_t  begin_;
+  volatile size_t  size_;
 }; // class Queue
 
 #endif
