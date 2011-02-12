@@ -48,6 +48,7 @@ char getDirection(const int pinForward, const int pinBackward)
 } // getDirection()
 } // unnamed namespace
 
+
 void EngSpeed::init(void)
 {
   // configure engine direction pins as outputs
@@ -65,7 +66,7 @@ void EngSpeed::init(void)
 
   // right engine enable as PWM / OC1B
   setRightEngine( Params(0, 0) );   // stop engine at the begining
-  DDRB|=_BV(PB2);                   // configure output pin
+  DDRB  |= _BV(PB2);                // configure output pin
   TCCR1A|= _BV(COM1B1);             // clear on TOP, set on MAX
   TCCR1A&=~_BV(COM1B0);             // ...
   TCCR1A&=~_BV(FOC1B);              // turn off force-output-compare
@@ -77,11 +78,9 @@ void EngSpeed::init(void)
   TCCR1A|= _BV(WGM10);              // ...
 #if(F_CPU!=8*MHz)
 #error TODO: CPU frequency has been changed, thus prescaler needs to be re-calbibrated
-#error TODO: it is required to 1/F_CPU*2^8*prescaler would be close to, but not greater
-#error TODO: than 1/400 (maximum measured frequency engine will turn with).
 #endif
-  TCCR1B&=~_BV(CS12);               // set prescaler to clk/64
-  TCCR1B|= _BV(CS11);               // ...
+  TCCR1B&=~_BV(CS12);               // set prescaler to clk/1
+  TCCR1B&=~_BV(CS11);               // ...
   TCCR1B|= _BV(CS10);               // ...
 }
 
@@ -92,9 +91,9 @@ EngSpeed::Params EngSpeed::getLeftEngine(void)
 
 void EngSpeed::setLeftEngine(const Params p)
 {
+  setDirection(p.dir_, PC1, PC0);
   OCR1AH=p.value_;
   OCR1AL=p.value_;
-  setDirection(p.dir_, PC1, PC0);
 }
 
 EngSpeed::Params EngSpeed::getRightEngine(void)
@@ -104,9 +103,9 @@ EngSpeed::Params EngSpeed::getRightEngine(void)
 
 void EngSpeed::setRightEngine(const Params p)
 {
+  setDirection(p.dir_, PC3, PC2);
   OCR1BH=p.value_;
   OCR1BL=p.value_;
-  setDirection(p.dir_, PC3, PC2);
 }
 
 void EngSpeed::stop(void)
