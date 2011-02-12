@@ -8,7 +8,7 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>     // <avr/delay.h> once
 
-#include "usart.hpp"
+#include "USART.hpp"
 #include "uassert.hpp"
 
 
@@ -49,17 +49,17 @@ int main(void)
   PORTD|=_BV(2);
   PORTD|=_BV(3);
 
-  usart_init();
+  USART::init();
   sei();
 
   for(int i=0; i<10; ++i)
   {
-    uint8_t c=usart_receive();
-    usart_send(c+1);
-    usart_send(c+2);
-    usart_send(c+3);
-    usart_send('\r');
-    usart_send('\n');
+    uint8_t c=USART::receive();
+    USART::send(c+1);
+    USART::send(c+2);
+    USART::send(c+3);
+    USART::send('\r');
+    USART::send('\n');
   }
 
   uassert(!"TODO");
