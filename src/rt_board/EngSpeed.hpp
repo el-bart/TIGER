@@ -32,6 +32,8 @@ struct EngSpeed
 
   static Params getRightEngine(void);
   static void setRightEngine(Params);
+
+  static void stop(void);
 }; // struct EngSpeed
 
 #endif

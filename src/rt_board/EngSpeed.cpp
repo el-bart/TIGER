@@ -57,18 +57,18 @@ void EngSpeed::init(void)
   DDRC|=_BV(PC3);   // right: forward
 
   // left engine enable as PWM / OC1A
+  setLeftEngine( Params(0, 0) );    // stop engine at the begining
   DDRB  |= _BV(PB1);                // configure output pin
   TCCR1A|= _BV(COM1A1);             // clear on TOP, set on MAX
   TCCR1A&=~_BV(COM1A0);             // ...
   TCCR1A&=~_BV(FOC1A);              // turn off force-output-compare
-  setLeftEngine( Params(0, 0) );    // stop engine at the begining
 
   // right engine enable as PWM / OC1B
+  setRightEngine( Params(0, 0) );   // stop engine at the begining
   DDRB|=_BV(PB2);                   // configure output pin
   TCCR1A|= _BV(COM1B1);             // clear on TOP, set on MAX
   TCCR1A&=~_BV(COM1B0);             // ...
   TCCR1A&=~_BV(FOC1B);              // turn off force-output-compare
-  setRightEngine( Params(0, 0) );   // stop engine at the begining
 
   // configure timer
   TCCR1B|= _BV(WGM13);              // fast-PWM mode, TOP==OCR1x
@@ -107,4 +107,11 @@ void EngSpeed::setRightEngine(const Params p)
   OCR1BH=p.value_;
   OCR1BL=p.value_;
   setDirection(p.dir_, PC3, PC2);
+}
+
+void EngSpeed::stop(void)
+{
+  const Params p(0, 0);
+  setLeftEngine(p);
+  setRightEngine(p);
 }

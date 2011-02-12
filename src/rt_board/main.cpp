@@ -70,8 +70,13 @@ int main(void)
   EngSpeed::init();     // engine speed control mechanism
   sei();                // enable interrupts globally
 
-  EngSpeed::setLeftEngine( EngSpeed::Params(1, 200) );
+  USART::receive();
+  EngSpeed::setRightEngine( EngSpeed::Params(1, 200) );
+  USART::receive();
+  EngSpeed::stop();     // engine speed control mechanism
+  for(;;);
 
+  /*
   // output changes
   uint16_t left    =0;
   uint16_t right   =0;
@@ -100,6 +105,7 @@ int main(void)
     leftOld =left;
     rightOld=right;
   }
+  */
 
 
   /*
