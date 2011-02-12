@@ -14,9 +14,6 @@
 
 // TODO: add test for baud-rate error and show error if value is over 1%
 
-namespace USART
-{
-
 //
 // I/O queues
 //
@@ -27,7 +24,7 @@ Queue g_outQ;
 } // unnamed namespace
 
 
-static inline void send_data_impl(void)
+static inline void sendDataImpl(void)
 {
   uassert( UCSRA & _BV(UDRE) );
   UDR=g_outQ.pop();
@@ -36,17 +33,17 @@ static inline void send_data_impl(void)
 // USART RX completed interrupt
 ISR(USART_RXC_vect)
 {
-  const uint8_t c=UDR;      // read form hardware ASAP
-  if( g_inQ.full() )        // if queue is full, drop last element
+  const uint8_t c=UDR;          // read form hardware ASAP
+  if( g_inQ.full() )            // if queue is full, drop last element
     g_inQ.pop();
-  g_inQ.push(c);            // enqueue new byte
+  g_inQ.push(c);                // enqueue new byte
 }
 
 // USART TX completed interrupt
 ISR(USART_TXC_vect)
 {
   if( !g_outQ.empty() )         // if have something to send
-    send_data_impl();
+    sendDataImpl();
 }
 
 // USART data register is empty interrupt
@@ -54,11 +51,11 @@ ISR(USART_UDRE_vect)
 {
   UCSRB&=~_BV(UDRIE);           // data registry empty - disable interrupt
   if( g_outQ.size()>0 )         // if data register is empty and we have data to send
-    send_data_impl();           // we can send it now
+    sendDataImpl();             // we can send it now
 }
 
 
-void init(void)
+void USART::init(void)
 {
   // clock devider register (computed from baud rate and oscilator frequency)
   UBRRH=(uint8_t)( (USART_UBRR(USART_BAUD, F_CPU)>>8) & 0x00FF );
@@ -95,7 +92,7 @@ void init(void)
   DDRD |= _BV(PD1);     // TX as out
 }
 
-void send(uint8_t b)
+void USART::send(uint8_t b)
 {
   while( g_outQ.full() );           // wait for space in queue
   g_outQ.push(b);                   // enqueue next char to send
@@ -105,22 +102,20 @@ void send(uint8_t b)
                                     // send initial (first) byte as soon as USART is ready
 }
 
-void send_array(uint8_t *b, size_t size)
+void USART::send(uint8_t *b, size_t size)
 {
   uassert(b!=NULL);
   for(size_t i=0; i<size; ++i)
     send(b[i]);
 }
 
-size_t inqueue_size(void)
+size_t USART::inQueueSize(void)
 {
   return g_inQ.size();              // return input queue size
 }
 
-uint8_t receive(void)
+uint8_t USART::receive(void)
 {
   while( g_inQ.empty() );           // wait for the data
   return g_inQ.pop();               // return read data
 }
-
-} // namespace USART
