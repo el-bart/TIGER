@@ -1,5 +1,5 @@
 /*
- * usart.c
+ * USART.cpp
  *
  */
 #include "config.hpp"

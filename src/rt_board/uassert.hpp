@@ -1,5 +1,5 @@
 /*
- * uassert.h
+ * uassert.hpp
  *
  */
 #ifndef INCLUDE_UASSERT_HPP_FILE
@@ -10,8 +10,16 @@
 
 #include <inttypes.h>
 
-void uassert_internal_implementation(uint16_t line, const char *file);
-#define uassert(cond) do { if(!(cond)) uassert_internal_implementation(__LINE__, __FILE__); } while(0)
+namespace detail
+{
+/** \brief helper call.
+ *  \param line line number.
+ *  \param file file name.
+ */
+void uassertInternalImplementation(uint16_t line, const char *file);
+}
+
+#define uassert(cond) do { if(!(cond)) detail::uassertInternalImplementation(__LINE__, __FILE__); } while(0)
 
 #else
 // release

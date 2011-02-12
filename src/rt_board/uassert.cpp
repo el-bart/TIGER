@@ -1,5 +1,5 @@
 /*
- * uassert.c
+ * uassert.cpp
  *
  */
 #include "config.hpp"
@@ -9,7 +9,9 @@
 
 #include "uassert.hpp"
 
-static void debug_send_char(uint8_t c)
+namespace
+{
+void debug_send_char(uint8_t c)
 {
   // wait for transmition to be over
   while( !(UCSRA & (1<<UDRE)) );
@@ -17,17 +19,20 @@ static void debug_send_char(uint8_t c)
   UDR=c;
 }
 
-static void debug_send_hex(uint8_t h)
+void debug_send_hex(uint8_t h)
 {
   h&=0x0F;  // just in case
   if(h<10)
     debug_send_char('0'+h);
   else
     debug_send_char('A'+(h-10));
-
 }
+} // unnamed namespace
 
-void uassert_internal_implementation(uint16_t line, const char *file)
+namespace detail
+{
+
+void uassertInternalImplementation(uint16_t line, const char *file)
 {
   cli();    // disable interrupts
 
@@ -64,4 +69,6 @@ void uassert_internal_implementation(uint16_t line, const char *file)
     _delay_ms(250);
 
   } // while(true)
-}
+} // uassertInternalImplementation()
+
+} // namespace detail

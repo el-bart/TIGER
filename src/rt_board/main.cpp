@@ -1,5 +1,5 @@
 /*
- * motors_control.c
+ * main.cpp
  *
  */
 #include "config.hpp"       // this file must be included as first one!

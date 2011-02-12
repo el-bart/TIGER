@@ -1,5 +1,5 @@
 /*
- * config.h
+ * config.hpp
  *
  */
 #ifndef INCLUDE_CONFIG_HPP_FILE

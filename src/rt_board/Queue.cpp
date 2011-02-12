@@ -1,5 +1,5 @@
 /*
- * queue.c
+ * Queue.cpp
  *
  */
 #include <util/atomic.h>
