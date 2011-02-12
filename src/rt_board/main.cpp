@@ -9,6 +9,7 @@
 #include <util/delay.h>     // <avr/delay.h> once
 
 #include "USART.hpp"
+#include "Impulses.hpp"
 #include "uassert.hpp"
 
 
@@ -16,6 +17,26 @@
 ISR(BADISR_vect)
 {
   uassert(!"unhandled interrupt");
+}
+
+
+void sendHex(uint8_t v)
+{
+  uassert(v<16);
+  const char *lut="0123456789abcdef";
+  USART::send(lut[v]);
+}
+
+void sendChar(uint8_t v)
+{
+  sendHex((v&0xF0)>>4);
+  sendHex((v&0x0F)>>0);
+}
+
+void sendV(uint16_t v)
+{
+  sendChar((v&0xFF00)>>8);
+  sendChar((v&0x00FF)>>0);
 }
 
 
@@ -43,15 +64,41 @@ int main(void)
   PORTB|=(1<<PB1);
   PORTB|=(1<<PB2);
 
-  // enable inputs from foto
-  DDRD&=~_BV(2);
-  DDRD&=~_BV(3);
-  PORTD|=_BV(2);
-  PORTD|=_BV(3);
+  USART::init();        // configure serial interface
+  Impulses::init();     // configure impulse counting via interrupts
+  sei();                // enable interrupts globally
 
-  USART::init();
-  sei();
+  // output changes
+  uint16_t left    =0;
+  uint16_t right   =0;
+  uint16_t leftOld =666;
+  uint16_t rightOld=666;
+  uint16_t cnt     =1;
+  while(true)
+  {
+    left =Impulses::getLeftEngine();
+    right=Impulses::getRightEngine();
+    // nothing changed?
+    if(left==leftOld && right==rightOld)
+      continue;
 
+    // ok - something has changed!
+    sendV(cnt);
+    USART::send(':');
+    USART::send(' ');
+    ++cnt;
+    sendV(left);
+    USART::send('/');
+    sendV(right);
+    USART::send('\n');
+
+    // assign these values
+    leftOld =left;
+    rightOld=right;
+  }
+
+
+  /*
   for(int i=0; i<10; ++i)
   {
     uint8_t c=USART::receive();
@@ -63,7 +110,9 @@ int main(void)
   }
 
   uassert(!"TODO");
+  */
 
+  /*
   // forward state
   for(;;)
   {
@@ -76,7 +125,9 @@ int main(void)
       PORTD&=~_BV(5);
     }
   }
+  */
 
+  /*
   // blink
   for(;;)
   {
@@ -93,6 +144,7 @@ int main(void)
         _delay_ms(250);
     }
   }
+  */
 
   for(;;) { }
 

@@ -64,17 +64,18 @@ void Impulses::init(void)
   DDRD &=~_BV(2);
   PORTD|= _BV(2);
   // enable INT0
-  GICR |=INT0;
-  MCUCR|=ISC01;
-  MCUCR|=ISC00;
+  MCUCR|=_BV(ISC01);
+  MCUCR|=_BV(ISC00);
+  GICR |=_BV(INT0);
+  //GIMSK|=_BV(INT0);
 
   // set pin as input for INT1
   DDRD &=~_BV(3);
   PORTD|= _BV(3);
   // enable INT1
-  GICR |=INT1;
-  MCUCR|=ISC11;
-  MCUCR|=ISC10;
+  MCUCR|=_BV(ISC11);
+  MCUCR|=_BV(ISC10);
+  GICR |=_BV(INT1);
 }
 
 uint16_t Impulses::getLeftEngine(void)
