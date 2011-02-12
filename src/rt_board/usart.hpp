@@ -2,8 +2,8 @@
  * usart.h
  *
  */
-#ifndef INCLUDE_USART_H_FILE
-#define INCLUDE_USART_H_FILE
+#ifndef INCLUDE_USART_HPP_FILE
+#define INCLUDE_USART_HPP_FILE
 
 #include <stdio.h>
 #include <inttypes.h>

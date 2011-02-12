@@ -2,8 +2,8 @@
  * queue.h
  *
  */
-#ifndef INCLUDE_QUEUE_H_FILE
-#define INCLUDE_QUEUE_H_FILE
+#ifndef INCLUDE_QUEUE_HPP_FILE
+#define INCLUDE_QUEUE_HPP_FILE
 
 #include <stdio.h>
 #include <inttypes.h>

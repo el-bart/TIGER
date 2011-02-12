@@ -2,8 +2,8 @@
  * uassert.h
  *
  */
-#ifndef INCLUDE_UASSERT_H_FILE
-#define INCLUDE_UASSERT_H_FILE
+#ifndef INCLUDE_UASSERT_HPP_FILE
+#define INCLUDE_UASSERT_HPP_FILE
 
 #ifndef NDEBUG
 // debug

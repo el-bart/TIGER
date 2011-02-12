@@ -2,8 +2,8 @@
  * config.h
  *
  */
-#ifndef INCLUDE_CONFIG_H_FILE
-#define INCLUDE_CONFIG_H_FILE
+#ifndef INCLUDE_CONFIG_HPP_FILE
+#define INCLUDE_CONFIG_HPP_FILE
 
 // units commonly used
 #define KHz   1000L
