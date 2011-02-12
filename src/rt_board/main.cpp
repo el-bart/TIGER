@@ -10,6 +10,7 @@
 
 #include "USART.hpp"
 #include "Impulses.hpp"
+#include "EngSpeed.hpp"
 #include "uassert.hpp"
 
 
@@ -66,7 +67,10 @@ int main(void)
 
   USART::init();        // configure serial interface
   Impulses::init();     // configure impulse counting via interrupts
+  EngSpeed::init();     // engine speed control mechanism
   sei();                // enable interrupts globally
+
+  EngSpeed::setLeftEngine( EngSpeed::Params(1, 200) );
 
   // output changes
   uint16_t left    =0;
