@@ -2,14 +2,14 @@
  * motors_control.c
  *
  */
-#include "config.h"         // this file must be included as first one!
+#include "config.hpp"       // this file must be included as first one!
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>     // <avr/delay.h> once
 
-#include "usart.h"
-#include "uassert.h"
+#include "usart.hpp"
+#include "uassert.hpp"
 
 
 // handle unknown interruption(s)
@@ -84,12 +84,12 @@ int main(void)
     {
       PORTD|=_BV(5);
       PORTC|=_BV(i);
-      for(int i=0; i<4; ++i)
+      for(int j=0; j<4; ++j)
         _delay_ms(250);
 
       PORTD&=~_BV(5);
       PORTC&=~_BV(i);
-      for(int i=0; i<4; ++i)
+      for(int j=0; j<4; ++j)
         _delay_ms(250);
     }
   }

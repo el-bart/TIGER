@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <inttypes.h>
 
-#include "config.h"
+#include "config.hpp"
 
 struct queue_data
 {

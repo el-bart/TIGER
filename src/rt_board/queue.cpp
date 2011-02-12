@@ -4,8 +4,8 @@
  */
 #include <util/atomic.h>
 
-#include "uassert.h"
-#include "queue.h"
+#include "uassert.hpp"
+#include "queue.hpp"
 
 void queue_init(struct queue_data *q)
 {

@@ -2,13 +2,13 @@
  * usart.c
  *
  */
-#include "config.h"
+#include "config.hpp"
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-#include "uassert.h"
-#include "usart.h"
-#include "queue.h"
+#include "uassert.hpp"
+#include "usart.hpp"
+#include "queue.hpp"
 
 #define USART_UBRR(baud,f) ( ((f)/((baud)*16L)) -1 )
 

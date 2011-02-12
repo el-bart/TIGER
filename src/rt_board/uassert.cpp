@@ -2,12 +2,12 @@
  * uassert.c
  *
  */
-#include "config.h"
+#include "config.hpp"
 #include <util/delay.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-#include "uassert.h"
+#include "uassert.hpp"
 
 static void debug_send_char(uint8_t c)
 {
