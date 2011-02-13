@@ -1,3 +1,4 @@
+* fix PWM mechanism - it does not work (looks like frong freq. is generated, or no freq. at all).
 * implement RT algorithm to achive required RPMs regardless of the current load.
 * describe protocol to be used for communication.
 * implement protocol for the communication.
