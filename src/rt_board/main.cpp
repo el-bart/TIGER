@@ -11,6 +11,7 @@
 #include "USART.hpp"
 #include "Impulses.hpp"
 #include "EngSpeed.hpp"
+#include "SpeedControl.hpp"
 #include "uassert.hpp"
 
 
@@ -43,13 +44,13 @@ void sendV(uint16_t v)
 
 void onLeftImpulse(const uint16_t c)
 {
-  // TODO
+  onLeftImpulseControl(c);
 }
 
 
 void onRightImpulse(const uint16_t c)
 {
-  // TODO
+  onRightImpulseControl(c);
 }
 
 
@@ -80,17 +81,24 @@ int main(void)
   USART::init();                                    // configure serial interface
   Impulses::init(onLeftImpulse, onRightImpulse);    // configure impulse counting via interrupts
   EngSpeed::init();                                 // engine speed control mechanism
+  //SpeedControl::init();                             // automatic speed control
   sei();                                            // enable interrupts globally
 
   while(true)
   {
-    const uint8_t spd=60;
+    const uint8_t              spd=0xFF-10;
+    const EngSpeed::Params     ep(1, spd);
+    const SpeedControl::Params scp(0xFFFF, ep);
+
     USART::receive();
-    EngSpeed::setLeftEngine(  EngSpeed::Params(1, spd) );
-    EngSpeed::setRightEngine( EngSpeed::Params(1, spd) );
+    //EngSpeed::LeftEngine::set(ep);
+    //EngSpeed::RightEngine::set(ep);
+    SpeedControl::leftEngine(scp);
+    SpeedControl::rightEngine(scp);
+
     USART::receive();
-    EngSpeed::setLeftEngine(  EngSpeed::Params(0, spd) );
-    EngSpeed::setRightEngine( EngSpeed::Params(0, spd) );
+    //EngSpeed::stop();
+    SpeedControl::stop();
   }
 
   /*
