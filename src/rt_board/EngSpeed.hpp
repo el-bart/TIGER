@@ -25,6 +25,39 @@ struct EngSpeed
     uint8_t value_;
   }; // struct Params
 
+  struct LeftEngine
+  {
+    static Params get(void)
+    {
+      return EngSpeed::getLeftEngine();
+    }
+    static void set(Params p)
+    {
+      EngSpeed::setLeftEngine(p);
+    }
+    static void modify(int8_t d)
+    {
+      EngSpeed::modifyLeft(d);
+    }
+  }; // struct LeftEngine
+
+  struct RightEngine
+  {
+    static Params get(void)
+    {
+      return EngSpeed::getRightEngine();
+    }
+    static void set(Params p)
+    {
+      EngSpeed::setRightEngine(p);
+    }
+    static void modify(int8_t d)
+    {
+      EngSpeed::modifyRight(d);
+    }
+  }; // struct RightEngine
+
+
   static void init(void);
 
   static Params getLeftEngine(void);
