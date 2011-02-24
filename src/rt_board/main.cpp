@@ -72,7 +72,7 @@ int main(void)
 
   while(true)
   {
-    const uint8_t spd=255/2;
+    const uint8_t spd=100;
     USART::receive();
     EngSpeed::setLeftEngine(  EngSpeed::Params(1, spd) );
     EngSpeed::setRightEngine( EngSpeed::Params(1, spd) );

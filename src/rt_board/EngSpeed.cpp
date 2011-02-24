@@ -72,10 +72,13 @@ void EngSpeed::init(void)
   TCCR1A&=~_BV(FOC1B);              // turn off force-output-compare
 
   // configure timer
-  TCCR1B|= _BV(WGM13);              // fast-PWM mode, TOP==OCR1x
+  TCCR1B|= _BV(WGM13);              // fast-PWM mode, TOP==ICR1
   TCCR1B|= _BV(WGM12);              // ...
   TCCR1A|= _BV(WGM11);              // ...
-  TCCR1A|= _BV(WGM10);              // ...
+  TCCR1A&=~_BV(WGM10);              // ...
+  // configure TOP to MAX
+  ICR1H=0xFF;
+  ICR1L=0xFF;
 #if(F_CPU!=8*MHz)
 #error TODO: CPU frequency has been changed, thus prescaler needs to be re-calbibrated
 #endif
