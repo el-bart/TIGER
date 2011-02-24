@@ -29,9 +29,11 @@ struct EngSpeed
 
   static Params getLeftEngine(void);
   static void setLeftEngine(Params p);
+  static void modifyLeft(int8_t d);
 
   static Params getRightEngine(void);
   static void setRightEngine(Params);
+  static void modifyRight(int8_t d);
 
   static void stop(void);
 }; // struct EngSpeed

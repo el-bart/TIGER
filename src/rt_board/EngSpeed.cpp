@@ -46,6 +46,18 @@ char getDirection(const int pinForward, const int pinBackward)
   uassert(!"code never reaches here");
   return 0;     // just for the compiler to back off
 } // getDirection()
+
+void setRightEngineImpl(const uint8_t v)
+{
+  OCR1BH=v;
+  OCR1BL=v;
+} // setRightEngineImpl()
+
+void setLeftEngineImpl(const uint8_t v)
+{
+  OCR1AH=v;
+  OCR1AL=v;
+} // setLeftEngineImpl()
 } // unnamed namespace
 
 
@@ -96,8 +108,22 @@ EngSpeed::Params EngSpeed::getLeftEngine(void)
 void EngSpeed::setLeftEngine(const Params p)
 {
   setDirection(p.dir_, PC1, PC0);
-  OCR1AH=p.value_;
-  OCR1AL=p.value_;
+  setLeftEngineImpl(p.value_);
+}
+
+void EngSpeed::modifyLeft(const int8_t d)
+{
+  const uint8_t cur=OCR1AH;
+  int16_t       upd=cur+d;
+  if(upd<0)
+    upd=0;
+  else
+    if(upd>0xFF)
+      upd=0xFF;
+
+  uassert(upd>=0);
+  uassert(upd<=0xFF);
+  setLeftEngineImpl(upd);
 }
 
 EngSpeed::Params EngSpeed::getRightEngine(void)
@@ -108,8 +134,22 @@ EngSpeed::Params EngSpeed::getRightEngine(void)
 void EngSpeed::setRightEngine(const Params p)
 {
   setDirection(p.dir_, PC3, PC2);
-  OCR1BH=p.value_;
-  OCR1BL=p.value_;
+  setRightEngineImpl(p.value_);
+}
+
+void EngSpeed::modifyRight(const int8_t d)
+{
+  const uint8_t cur=OCR1BH;
+  int16_t       upd=cur+d;
+  if(upd<0)
+    upd=0;
+  else
+    if(upd>0xFF)
+      upd=0xFF;
+
+  uassert(upd>=0);
+  uassert(upd<=0xFF);
+  setRightEngineImpl(upd);
 }
 
 void EngSpeed::stop(void)
