@@ -11,8 +11,9 @@
 
 /** \brief control mechanism for the engines.
  */
-struct EngSpeed
+class EngSpeed
 {
+public:
   struct Params
   {
     Params(char dir, uint8_t value):
@@ -39,6 +40,10 @@ struct EngSpeed
     {
       EngSpeed::modifyLeft(d);
     }
+    static void stop(void)
+    {
+      set( EngSpeed::Params(0,0) );
+    }
   }; // struct LeftEngine
 
   struct RightEngine
@@ -55,11 +60,17 @@ struct EngSpeed
     {
       EngSpeed::modifyRight(d);
     }
+    static void stop(void)
+    {
+      set( EngSpeed::Params(0,0) );
+    }
   }; // struct RightEngine
 
 
   static void init(void);
+  static void stop(void);
 
+private:
   static Params getLeftEngine(void);
   static void setLeftEngine(Params p);
   static void modifyLeft(int8_t d);
@@ -67,8 +78,6 @@ struct EngSpeed
   static Params getRightEngine(void);
   static void setRightEngine(Params);
   static void modifyRight(int8_t d);
-
-  static void stop(void);
-}; // struct EngSpeed
+}; // class EngSpeed
 
 #endif

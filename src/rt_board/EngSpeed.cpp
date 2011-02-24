@@ -154,7 +154,6 @@ void EngSpeed::modifyRight(const int8_t d)
 
 void EngSpeed::stop(void)
 {
-  const Params p(0, 0);
-  setLeftEngine(p);
-  setRightEngine(p);
+  LeftEngine::stop();
+  RightEngine::stop();
 }
