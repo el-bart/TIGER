@@ -3,11 +3,18 @@
  *
  */
 #include <util/atomic.h>
+#include <stdlib.h>
 
 #include "Impulses.hpp"
+#include "uassert.hpp"
 
 namespace
 {
+// impulses callbacks
+Impulses::IntCallback g_onLeftImpulse =NULL;
+Impulses::IntCallback g_onRightImpulse=NULL;
+
+// counter values
 volatile uint16_t g_left;
 volatile uint16_t g_right;
 
@@ -39,24 +46,40 @@ inline void incCounter(volatile uint16_t &c)
     ++c;
   }
 } // incCounter()
+
+inline void interruptRoutine(volatile uint16_t &c, Impulses::IntCallback callback)
+{
+  // increment counter
+  incCounter(c);
+  // perform user's callback, if present
+  if(callback!=NULL)
+  {
+    const uint16_t tmp=getCounter(c);
+    callback(tmp);
+  }
+} // interruptRoutine()
 } // unnamed namespace
 
 
 // INT0 interrupt - left counter
 ISR(INT0_vect)
 {
-  incCounter(g_left);
+  interruptRoutine(g_left, g_onLeftImpulse);
 }
 
 // INT1 interrupt - right counter
 ISR(INT1_vect)
 {
-  incCounter(g_right);
+  interruptRoutine(g_right, g_onRightImpulse);
 }
 
 
-void Impulses::init(void)
+void Impulses::init(IntCallback onLeftImpulse, IntCallback onRightImpulse)
 {
+  // assign callbacks
+  g_onLeftImpulse =onLeftImpulse;
+  g_onRightImpulse=onRightImpulse;
+
   // initial values
   g_left =0;
   g_right=0;

@@ -13,7 +13,9 @@
  */
 struct Impulses
 {
-  static void init(void);
+  typedef void (*IntCallback)(uint16_t cnt);
+
+  static void init(IntCallback onLeftImpulse, IntCallback onRightImpulse);
 
   static uint16_t getLeftEngine(void);
   static uint16_t getRightEngine(void);

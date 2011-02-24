@@ -41,6 +41,18 @@ void sendV(uint16_t v)
 }
 
 
+void onLeftImpulse(const uint16_t c)
+{
+  // TODO
+}
+
+
+void onRightImpulse(const uint16_t c)
+{
+  // TODO
+}
+
+
 //
 // MAIN
 //
@@ -65,10 +77,10 @@ int main(void)
   PORTB|=(1<<PB1);
   PORTB|=(1<<PB2);
 
-  USART::init();        // configure serial interface
-  Impulses::init();     // configure impulse counting via interrupts
-  EngSpeed::init();     // engine speed control mechanism
-  sei();                // enable interrupts globally
+  USART::init();                                    // configure serial interface
+  Impulses::init(onLeftImpulse, onRightImpulse);    // configure impulse counting via interrupts
+  EngSpeed::init();                                 // engine speed control mechanism
+  sei();                                            // enable interrupts globally
 
   while(true)
   {
