@@ -41,13 +41,14 @@ inline void incCounter(volatile uint16_t &c)
 } // incCounter()
 } // unnamed namespace
 
-// INT0 interrupt
+
+// INT0 interrupt - left counter
 ISR(INT0_vect)
 {
   incCounter(g_left);
 }
 
-// INT1 interrupt
+// INT1 interrupt - right counter
 ISR(INT1_vect)
 {
   incCounter(g_right);
@@ -67,7 +68,6 @@ void Impulses::init(void)
   MCUCR|=_BV(ISC01);
   MCUCR|=_BV(ISC00);
   GICR |=_BV(INT0);
-  //GIMSK|=_BV(INT0);
 
   // set pin as input for INT1
   DDRD &=~_BV(3);
