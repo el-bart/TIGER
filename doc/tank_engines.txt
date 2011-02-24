@@ -4,7 +4,7 @@ heavy-load current: 1.2~1.6[A]
 original engine's transistor's max current: 1.5[A]
 
 -------
-since this construction will be much havier, 2[A] transistors are
+since this construction will be much heavier, 2[A] transistors are
 to be used for controlling.
 
 
