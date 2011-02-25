@@ -81,20 +81,24 @@ int main(void)
   USART::init();                                    // configure serial interface
   Impulses::init(onLeftImpulse, onRightImpulse);    // configure impulse counting via interrupts
   EngSpeed::init();                                 // engine speed control mechanism
-  //SpeedControl::init();                             // automatic speed control
+  SpeedControl::init();                             // automatic speed control
   sei();                                            // enable interrupts globally
 
   while(true)
   {
-    const uint8_t              spd=0xFF-10;
-    const EngSpeed::Params     ep(1, spd);
-    const SpeedControl::Params scp(0xFFFF, ep);
-
     USART::receive();
+    //const EngSpeed::Params ep(+1, 256/2);
     //EngSpeed::LeftEngine::set(ep);
     //EngSpeed::RightEngine::set(ep);
-    SpeedControl::leftEngine(scp);
-    SpeedControl::rightEngine(scp);
+    //const SpeedControl::Params scp(0xFFFF, +1, 200);
+    //SpeedControl::leftEngine(scp);
+    //SpeedControl::rightEngine(scp);
+      SpeedControl::rightEngine( SpeedControl::Params(0xFFFF, 1, 140) );
+    for(int i=0x10; i<0x60; i+=10)
+    {
+      USART::receive();
+      SpeedControl::rightEngine( SpeedControl::Params(0xFFFF, 1, i) );
+    }
 
     USART::receive();
     //EngSpeed::stop();

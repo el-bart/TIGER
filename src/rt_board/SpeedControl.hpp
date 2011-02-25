@@ -6,7 +6,6 @@
 #define INCLUDE_SPEEDCONTROL_HPP_FILE
 
 #include "config.hpp"
-#include "EngSpeed.hpp"
 
 #include <inttypes.h>
 
@@ -20,16 +19,16 @@ struct SpeedControl
 {
   struct Params
   {
-    // TODO: this config is invalid - for PWM one needs % fill, for
-    //       speed control timespan between impulses. it has to be reogranized.
-    Params(uint16_t count, const EngSpeed::Params &speed):
+    Params(uint16_t count, int8_t dir, uint8_t delay):
       count_(count),
-      speed_(speed)
+      dir_(dir),
+      delay_(delay)
     {
     }
 
-    uint16_t         count_;    ///< number of steps to perform
-    EngSpeed::Params speed_;    ///< speed to ride with
+    uint16_t count_;        ///< number of steps to perform
+    int8_t   dir_;          ///< -/0/+ == left/stop/right
+    uint8_t  delay_;        ///< expected delay between impulses, measured in multiple of 1[ms] (1.024[ms], to be precise)
   }; // struct Params
 
   static void init(void);
