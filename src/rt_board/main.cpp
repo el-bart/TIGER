@@ -61,29 +61,17 @@ int main(void)
 {
   // one big TODO !
 
-  // led
-  DDRD|=(1 << PB5);
-
-  // mode
-  DDRC|=(1 << PC0);
-  DDRC|=(1 << PC1);
-  DDRC|=(1 << PC2);
-  DDRC|=(1 << PC3);
-
-  // enable
-  DDRB|=(1 << PB1);
-  DDRB|=(1 << PB2);
-
-  // enable both
-  PORTB|=(1<<PB1);
-  PORTB|=(1<<PB2);
-
   USART::init();                                    // configure serial interface
   Impulses::init(onLeftImpulse, onRightImpulse);    // configure impulse counting via interrupts
   EngSpeed::init();                                 // engine speed control mechanism
   SpeedControl::init();                             // automatic speed control
   sei();                                            // enable interrupts globally
 
+  DDRD |= _BV(PB5);                                 // signal that system is working
+  PORTD|= _BV(PB5);                                 // ...
+
+#if 0
+  // speed control algorithm test
   while(true)
   {
     USART::receive();
@@ -104,8 +92,9 @@ int main(void)
     //EngSpeed::stop();
     SpeedControl::stop();
   }
+#endif
 
-  /*
+#if 0
   // output changes
   uint16_t left    =0;
   uint16_t right   =0;
@@ -134,10 +123,10 @@ int main(void)
     leftOld =left;
     rightOld=right;
   }
-  */
+#endif
 
 
-  /*
+#if 0
   for(int i=0; i<10; ++i)
   {
     uint8_t c=USART::receive();
@@ -147,11 +136,10 @@ int main(void)
     USART::send('\r');
     USART::send('\n');
   }
-
   uassert(!"TODO");
-  */
+#endif
 
-  /*
+#if 0
   // forward state
   for(;;)
   {
@@ -164,9 +152,9 @@ int main(void)
       PORTD&=~_BV(5);
     }
   }
-  */
+#endif
 
-  /*
+#if 0
   // blink
   for(;;)
   {
@@ -183,10 +171,9 @@ int main(void)
         _delay_ms(250);
     }
   }
-  */
+#endif
 
-  for(;;) { }
-
+  for(;;);// TODO: this code is to be removed.
   return 0;
 } // main()
 
