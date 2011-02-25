@@ -93,11 +93,11 @@ int main(void)
     //const SpeedControl::Params scp(0xFFFF, +1, 200);
     //SpeedControl::leftEngine(scp);
     //SpeedControl::rightEngine(scp);
-      SpeedControl::rightEngine( SpeedControl::Params(0xFFFF, 1, 140) );
     for(int i=0x10; i<0x60; i+=10)
     {
       USART::receive();
-      SpeedControl::rightEngine( SpeedControl::Params(0xFFFF, 1, i) );
+      SpeedControl::leftEngine(  SpeedControl::Params(0xFFFF, +1, i) );
+      SpeedControl::rightEngine( SpeedControl::Params(0xFFFF, -1, 0x60-i) );
     }
 
     USART::receive();

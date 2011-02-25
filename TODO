@@ -1,3 +1,2 @@
-* implement RT algorithm to achive required RPMs regardless of the current load.
 * describe protocol to be used for communication.
 * implement protocol for the communication.
