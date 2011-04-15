@@ -84,6 +84,7 @@ void USART::init(void)
   UCSRC&=~_BV(USBS);
 
   // other configuration options
+  // TODO: should be UCSRC|= _BV(URSEL);   // synchronous mode
   UCSRC&=~_BV(URSEL);   // synchronous mode
   UCSRC&=~_BV(UCPOL);   // clock polarity mode
 
