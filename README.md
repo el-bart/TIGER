@@ -1,2 +1,1 @@
-TIGER
-=====
+doc/readme.txt
