@@ -1,0 +1,11 @@
+free-run current: ~0.45[A]
+heavy-load current: 1.2~1.6[A]
+
+original engine's transistor's max current: 1.5[A]
+
+-------
+since this construction will be much heavier, 2[A] transistors are
+to be used for controlling.
+
+
+free-run rates: ~400Hz (@12V)

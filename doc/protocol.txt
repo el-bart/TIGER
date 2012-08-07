@@ -1,0 +1,47 @@
+packet:
+  size 1B: payload size
+  version/flags 1B:
+    0xF0 - version bits
+    0x0F - reserved
+  palyload: <size>B
+  checksum: 1B; XOR of whole data
+
+message (in payload):
+  1B type
+  nB content
+
+all multi-byte data types are in big-endian order
+
+-------------
+messages types:
+
+0x00 ERROR
+informs about error
+data: -
+
+0x01 OK
+informs on success
+data: -
+
+0x02 ACK
+data accepted
+data: -
+
+0x03 HELLO
+greeting string, identifing device; packet sent when errorneus request arrives
+data:
+newest supported version 1B:
+ 0xF0 - newest protocol version device understands bits
+ 0x08 - bit indicating if this is ONLY protocol version device understands
+ 0x07 - reserved bits
+
+0x04 ENGINE
+sets engine speed
+data:
+flags 1B:
+  0x80 - trac slelection: 1==left, 0==right
+  0x60 - dir select: 1==forward, 2==backward, 0,3==stop
+  0x1F - reserved
+when "dir select" is 1 or 2 then following bytes appear:
+speed 1B: time between impulses
+steps 2B: number of steps to perform
