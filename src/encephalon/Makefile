@@ -1,1 +1,1 @@
-build_process/makefiles/basic_mks/ProjectMakefile
+../shared/small_prj_build_process/Makefile

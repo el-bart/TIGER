@@ -1,8 +1,8 @@
 # name of the application
-export PROGRAM_NAME:=rt_board
+export PROGRAM_NAME:=encephalon
 
 # default toolchain - can be changed with 'make TC=xxx'
-export TC:=avr
+export TC:=gcc
 
 # toolchain
 ifeq ($(TC),gcc)
@@ -33,7 +33,7 @@ endif # TC=gcc
 
 # extra flags, if needed
 export CFLAGS  +=
-export CXXFLAGS+=
+export CXXFLAGS+=-std=c++11
 export LDFLAGS +=
 
 # default target

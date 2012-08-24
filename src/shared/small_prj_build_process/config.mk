@@ -1,8 +1,8 @@
 # name of the application
-export PROGRAM_NAME:=rt_board
+export PROGRAM_NAME:=my_program_name
 
 # default toolchain - can be changed with 'make TC=xxx'
-export TC:=avr
+export TC:=gcc
 
 # toolchain
 ifeq ($(TC),gcc)
@@ -37,4 +37,4 @@ export CXXFLAGS+=
 export LDFLAGS +=
 
 # default target
-export DEFAULT_TARGET:=release
+export DEFAULT_TARGET:=debug
