@@ -32,8 +32,8 @@ FaceDetector::Faces FaceDetector::detect(const cv::Mat& img)
   // perform the detection
   Faces faces;
   auto mode = CV_HAAR_SCALE_IMAGE;
-  //mode |= CV_HAAR_FIND_BIGGEST_OBJECT;
-  //mode |= CV_HAAR_DO_ROUGH_SEARCH;
+  mode     |= CV_HAAR_FIND_BIGGEST_OBJECT;
+  mode     |= CV_HAAR_DO_ROUGH_SEARCH;
   const cv::Size pyrSize(30,30);
   cc_.detectMultiScale( small_, faces, 1.1, 2, mode, pyrSize );
 
