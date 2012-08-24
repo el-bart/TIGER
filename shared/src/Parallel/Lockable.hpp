@@ -20,6 +20,9 @@ public:
   void unlock(void) const { m_.unlock(); }
   bool try_lock(void) const { return m_.try_lock(); }
 
+  // get acess to mutex - needed in special cases...
+  Mutex& mutex(void) { return m_; }
+
 private:
   mutable Mutex m_;
 };
@@ -43,6 +46,9 @@ public:
   bool try_lock_for(const std::chrono::duration<Rep,Period>& timeout) const { return m_.try_lock_for(timeout); }
   template< class Clock, class Duration >
   bool try_lock_until(const std::chrono::time_point<Clock,Duration>& timeout) const { return m_.try_lock_until(timeout); }
+
+  // get acess to mutex - needed in special cases...
+  Mutex& mutex(void) { return m_; }
 
 private:
   mutable Mutex m_;
