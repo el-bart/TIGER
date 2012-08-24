@@ -34,7 +34,7 @@ endif # TC=gcc
 # extra flags, if needed
 export CFLAGS  +=
 export CXXFLAGS+=-std=c++11
-export LDFLAGS +=
+export LDFLAGS +=-lrt
 
 # default target
 export DEFAULT_TARGET:=test
