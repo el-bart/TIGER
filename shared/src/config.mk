@@ -31,10 +31,15 @@ $(error UNKNWON TOOLCHAIN '$(TC)'; USE 'gcc' (i.e. local) or 'avr')
 endif # TC=avr
 endif # TC=gcc
 
+# extra libs flags
+# av lib
+LIBAV_FLAGS:=$(shell pkg-config libavutil --cflags)
+LIBAV_LIBS :=$(shell pkg-config libavutil --libs)
+
 # extra flags, if needed
 export CFLAGS  +=
-export CXXFLAGS+=-std=c++11
-export LDFLAGS +=-lrt
+export CXXFLAGS+=-std=c++11 $(LIBAV_FLAGS)
+export LDFLAGS +=-lopencv_highgui -lopencv_video -lopencv_imgproc -lopencv_core $(LIBAV_LIBS) -lv4l2 -lrt
 
 # default target
 export DEFAULT_TARGET:=test
