@@ -17,7 +17,7 @@ OpticalFlow::Flow OpticalFlow::computeFlow(const cv::Mat& img)
   resize( nowGray_, now_, smallSize, 0, 0, cv::INTER_LINEAR );
   // compute flow only if there is a previous image
   if( prev_.data )
-    calcOpticalFlowFarneback(prev_, now_, flowMat, 0.5, 3, 15, 3, 5, 1.2, 0);
+    calcOpticalFlowFarneback(prev_, now_, flowMat, 0.5, 3, 15, 3, 5, 1.2, 0);   // TODO: hardcoded values
   // make current image the previous one
   std::swap(prev_, now_);
   // return the output type
