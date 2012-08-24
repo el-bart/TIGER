@@ -21,8 +21,12 @@ public:
   Faces detect(const cv::Mat& img);
 
 private:
+  Faces translatePosition(Faces faces) const;
+
   const double          scale_;
   cv::CascadeClassifier cc_;
+  cv::Mat               gray_;
+  cv::Mat               small_;
 };
 
 }

@@ -10,7 +10,11 @@ using namespace std;
 
 void markFacesOnImage(const Video::FaceDetector::Faces& faces, cv::Mat& img)
 {
-  // TODO
+  for(const auto& f: faces)
+  {
+    const cv::Scalar color = CV_RGB(0,255,0);
+    cv::rectangle(img, f, color);
+  }
 }
 
 
@@ -22,9 +26,12 @@ int main(int argc, char** argv)
     return 1;
   }
 
+  cout << "initializing face detector..." << endl;
+  Video::FaceDetector faceDetector(argv[2], 1.0/6);
+
   cout << setprecision(3);
 
-  cout << "initializing device..." << endl;
+  cout << "initializing video device..." << endl;
   const Util::ClockTimerRT clkInit;
   Video::FrameGrabberPtr fg( new Video::FrameGrabberV4L(argv[1], 800, 600) );
   const std::string winName = "image from grabber";
@@ -36,8 +43,6 @@ int main(int argc, char** argv)
     const cv::Size size = fg->size();
     cout << "grabbing resolution set to " << size.width << "x" << size.height << endl;
   }
-
-  Video::FaceDetector faceDetector(argv[2], 0.5);
 
   cout << "grabbing frames - press any key to stop" << endl;
   const Util::ClockTimerRT clkFps;
