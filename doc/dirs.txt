@@ -1,0 +1,3 @@
+motherboard - directory with 'encephalon' - the main processing component, run of host computer.
+rt_board    - real-time part, implemented on the uC.
+shared      - common components for tests, rt_board and encephalon (linked from there).

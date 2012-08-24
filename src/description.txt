@@ -1,3 +1,0 @@
-encephalon - main processing component, run of host
-rt_board   - real-time part implemented on uC
-shared     - common components for rt_board and encephalon (linked from there)
