@@ -1,6 +1,7 @@
 #ifndef INCLUDE_VIDEO_FACERECOGNIZERWRAPPER_HPP_FILE
 #define INCLUDE_VIDEO_FACERECOGNIZERWRAPPER_HPP_FILE
 
+#include <memory>
 #include <utility>
 #include <cassert>
 #include <boost/filesystem.hpp>
@@ -38,6 +39,9 @@ private:
   boost::filesystem::path     workDir_;
   FaceRecognizer::TrainingSet trainingSet_;
 };
+
+
+typedef std::unique_ptr<FaceRecognizerWrapper> FaceRecognizerWrapperPtr;
 
 }
 

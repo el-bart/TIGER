@@ -6,7 +6,7 @@
 namespace Video
 {
 
-FaceTracker::FaceTracker(FaceDetectorPtr det, FaceRecognizerPtr rec, Parameters params):
+FaceTracker::FaceTracker(FaceDetectorPtr det, FaceRecognizerWrapperPtr rec, Parameters params):
   det_( std::move(det) ),
   rec_( std::move(rec) ),
   frameNo_(0),
@@ -14,7 +14,7 @@ FaceTracker::FaceTracker(FaceDetectorPtr det, FaceRecognizerPtr rec, Parameters 
 {
   // check detector and recognizer
   if( det_.get()==nullptr || rec_.get()==nullptr )
-    throw Util::Exception( UTIL_LOCSTRM << "face detector nor face recognizer cannot be nulls" );
+    throw Util::Exception( UTIL_LOCSTRM << "face detector nor face recognizer cannot be null" );
   // check params
   {
     const double tmp = params_.betweenFramesMovePercent_;

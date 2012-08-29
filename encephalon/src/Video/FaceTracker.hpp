@@ -10,7 +10,7 @@
 
 #include "Util/Exception.hpp"
 #include "Video/FaceDetector.hpp"
-#include "Video/FaceRecognizer.hpp"
+#include "Video/FaceRecognizerWrapper.hpp"
 
 
 namespace Video
@@ -46,7 +46,7 @@ public:
     size_t maxUnknownSequenceLength_;       // sequence length to be used for learning
   };
 
-  FaceTracker(FaceDetectorPtr det, FaceRecognizerPtr rec, Parameters params);
+  FaceTracker(FaceDetectorPtr det, FaceRecognizerWrapperPtr rec, Parameters params);
 
   Faces process(const cv::Mat& frame);
 
@@ -55,12 +55,13 @@ private:
   Faces postProcess(Faces faces);
   void updateRecognizer(const FaceSequence& seq);
 
-  FaceDetectorPtr   det_;
-  FaceRecognizerPtr rec_;
-
-  uint64_t          frameNo_;
-  Parameters        params_;
-  FaceHistory       hist_;
+  // detection and recognition for single frame
+  FaceDetectorPtr          det_;
+  FaceRecognizerWrapperPtr rec_;
+  // expansion over multiple frames
+  uint64_t    frameNo_;
+  Parameters  params_;
+  FaceHistory hist_;
 };
 
 }
