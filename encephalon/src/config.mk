@@ -35,11 +35,17 @@ endif # TC=gcc
 # av lib
 LIBAV_FLAGS:=$(shell pkg-config libavutil --cflags)
 LIBAV_LIBS :=$(shell pkg-config libavutil --libs)
+# opencv
+LIBOPENCV_FLAGS:=$(shell pkg-config opencv --cflags)
+LIBOPENCV_LIBS :=$(shell pkg-config opencv --libs)
+# boost::filesystem
+LIBBOOSTFS_FLAGS:=
+LIBBOOSTFS_LIBS :=-lboost_filesystem -lboost_system
 
 # extra flags, if needed
 export CFLAGS  +=
-export CXXFLAGS+=-std=c++11 $(LIBAV_FLAGS)
-export LDFLAGS +=-lopencv_highgui -lopencv_objdetect -lopencv_video -lopencv_imgproc -lopencv_core $(LIBAV_LIBS) -lv4l2 -lrt
+export CXXFLAGS+=-std=c++11 $(LIBOPENCV_FLAGS) $(LIBAV_FLAGS) $(LIBBOOSTFS_FLAGS)
+export LDFLAGS +=$(LIBOPENCV_LIBS) $(LIBAV_LIBS) $(LIBBOOSTFS_LIBS) -lv4l2 -lrt
 
 # default target
 export DEFAULT_TARGET:=release
