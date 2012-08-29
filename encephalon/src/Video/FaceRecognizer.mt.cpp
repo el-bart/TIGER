@@ -25,7 +25,9 @@ void markFacesOnImage(const Video::FaceDetector::Faces& faces, const Video::Face
     // select face region from the image
     cv::Mat faceImg = img(f);
     // try detecting face
-    const char* name = fr.recognize(faceImg);
+    cv::Mat faceGray;
+    cvtColor( faceImg, faceGray, CV_BGR2GRAY );
+    const char* name = fr.recognize(faceGray);
     if(name==nullptr)
       name = "< UNKNOWN >";
     // check the size of the text
@@ -53,7 +55,7 @@ Video::FaceRecognizer::TrainingSet readTrainSet(const fs::path& dir)
     {
       const fs::path file = picIt->path();
       assert( fs::is_regular_file(file) && "invalid direcotry strucutre" );
-      const cv::Mat  pic  = cv::imread( file.string() );
+      const cv::Mat  pic  = cv::imread( file.string(), 0 ); // image MUST BE GRAY SCALE!
       // add to training set
       trainSet.addElement(pic, label);
     }
@@ -79,8 +81,8 @@ int main(int argc, char** argv)
   cout << "got " << trainSet.samples() << " samples" << endl;
   cout << "learning face recognition... (may take a while)" << endl;
   const Util::ClockTimerRT faceRecLearnClk;
-  Video::FaceRecognizer faceRecognizer(trainSet, 2.0);
-  cout << "learned in " << faceRecLearnClk.elapsed() << "[s]" << endl;
+  Video::FaceRecognizer faceRecognizer(trainSet, 4.6);
+  cout << "learned in " << faceRecLearnClk.elapsed() << "[s]; threshold is " << faceRecognizer.threshold() << endl;
 
   cout << "initializing face detector..." << endl;
   Video::FaceDetector faceDetector(argv[2], 1.0/6);

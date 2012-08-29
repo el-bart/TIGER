@@ -26,6 +26,8 @@ public:
 
     void addElement(const cv::Mat& face, std::string name)
     {
+      if( face.type() != CV_8UC1 )
+        throw Util::Exception( UTIL_LOCSTRM << "face image for learning must be grayscale (CV_8UC1)" );
       entries_.push_back( Entry{std::move(name), face} );
     }
 
@@ -43,12 +45,14 @@ public:
   // avgThRangeScale - scale factor for similarity threshold scale, computed from average distance between elements
   //                   in the same class. if minimum distance between every element, within the set, is in the range
   //                   [300;500] than acceptance threshold will be equal to 300+(500-300)*avgThRangeScale. this value
-  //                   should be at least 1.0. value of 2-3 is reasonable
+  //                   should be at least 1.0. values between 2-6 are reasonable
   FaceRecognizer(const TrainingSet& set, double avgThRangeScale);
 
   const char* recognize(const cv::Mat& face) const;
 
   void swap(FaceRecognizer& other);
+
+  double threshold(void) const { return threshold_; }
 
 private:
   typedef std::unique_ptr<cv::FaceRecognizer> FaceRecognizerPtr;

@@ -1,4 +1,3 @@
-#include <iostream>                 
 #include <algorithm>
 #include <cassert>
 
@@ -18,10 +17,12 @@ FaceRecognizer::FaceRecognizer(const TrainingSet& set, const double avgThRangeSc
   int                  nextFreeLabel = 0;
   std::vector<cv::Mat> faces;
   std::vector<int>     labels;
+  std::vector<cv::Mat> testSet;
   // prepare space for the destination data
   faces.reserve( set.samples() );
   labels.reserve( set.samples() );
   labMap_.reserve( set.samples() );
+  testSet.reserve( set.samples() );
 
   // prepare data in the format used by the learning algorithm
   for( const auto& e: set.entries() )
@@ -40,6 +41,9 @@ FaceRecognizer::FaceRecognizer(const TrainingSet& set, const double avgThRangeSc
       id = nextFreeLabel;
       ++nextFreeLabel;
       labMap_.insert( it, LabelMap::value_type{id, name} );
+      // first image from every class keep as a test one
+      testSet.push_back(face);
+      continue;
     }
     else
     {
@@ -55,41 +59,24 @@ FaceRecognizer::FaceRecognizer(const TrainingSet& set, const double avgThRangeSc
   // learn data
   assert( faceRecognizer_.get() != nullptr );
   assert( faces.size() == labels.size() );
+  //for(size_t i=0; i<faces.size(); ++i)
   faceRecognizer_->train(faces, labels);
 
   // set threshold according to what has been learned
-  double thMin    = 99999999999999;
-  double thMax    = 0;
-  double thMinSum = 0;
-  double thMaxSum = 0;
-  size_t count    = 0;
-  for(size_t i=0; i<faces.size(); ++i)
+  double thMin = 99999999999999;
+  double thMax = 0;
+  for(const auto& face: testSet)
   {
-    int    label;
-    double dist;
-    faceRecognizer_->predict(faces[i], label, dist);
-//    int x=faceRecognizer_->predict(faces[i]);
-//std::cerr << "X=" << x << "\n";
-    if(labels[i]==label)
-    {
-std::cerr << "prediction ok - dist: " << dist << " / label: " << label << "\n";
-      if(dist<thMin)
-        thMin = dist;
-      if(dist>thMax)
-        thMax = dist;
-      thMinSum += dist;
-      thMaxSum += dist;
-      ++count;
-    }
-else
-std::cerr << "prediction failed!\n";
+    int    label = -1;
+    double dist  = -1;
+    faceRecognizer_->predict(face, label, dist);
+    if(dist<thMin)
+      thMin = dist;
+    if(dist>thMax)
+      thMax = dist;
   }
-  const double avgMin = thMinSum / count;
-  const double avgMax = thMaxSum / count;
-  const double diff   = avgMax-avgMin;
-  threshold_ = avgMin + diff * avgThRangeScale_;
-std::cerr << " VALUES: " << thMin << " : " << thMax << "\n";
-std::cerr << " VALUES: " << avgMin << " " << avgMax << " " << threshold_ << "\n";
+  const double diff = thMax - thMin;
+  threshold_ = thMin + diff * avgThRangeScale_;
 
   // final version needs to be sorted by int ids, for easier search
   {
@@ -102,6 +89,10 @@ std::cerr << " VALUES: " << avgMin << " " << avgMax << " " << threshold_ << "\n"
 
 const char* FaceRecognizer::recognize(const cv::Mat& face) const
 {
+  // sanity check
+  if( face.type() != CV_8UC1 )
+    throw Util::Exception( UTIL_LOCSTRM << "face image for recognition must be grayscale (CV_8UC1)" );
+
   // try recongnizing given image
   int    label;
   double dist;
@@ -115,7 +106,6 @@ const char* FaceRecognizer::recognize(const cv::Mat& face) const
   const auto                 it  = std::lower_bound( labMap_.begin(), labMap_.end(), searchValue, swo );
   if( it == labMap_.end() )
     throw std::logic_error( (UTIL_LOCSTRM << "oops - required label id " << label << " not found!").str() );
-std::cerr << "GOT match " << label << " / " << it->second << " with distance  " << dist << std::endl;               
   return it->second.c_str();
 }
 
