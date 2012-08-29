@@ -14,8 +14,8 @@ void drawOpticalFlow(const Video::OpticalFlow::Flow& flow, cv::Mat& img, const s
   const double   scale = img.size().width/double(size.width);
 
   // draw each arrow
-  for(size_t y=0; y<size.height; y+=step)
-    for(size_t x=0; x<size.width; x+=step)
+  for(int y=0; y<size.height; y+=step)
+    for(int x=0; x<size.width; x+=step)
     {
       const cv::Point2f dxy   = flow.at(y,x);
       const cv::Scalar  color = CV_RGB(0,255,0);
