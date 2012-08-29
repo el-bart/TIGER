@@ -10,11 +10,11 @@ namespace fs = boost::filesystem;
 namespace Video
 {
 
-FaceRecognizerWrapper::FaceRecognizerWrapper(FaceRecognizer::TrainingSet set, double avgThRangeScale, boost::filesystem::path workDir):
-  workDir_( std::move(workDir) ),
-  trainingSet_( std::move(set) ),
+FaceRecognizerWrapper::FaceRecognizerWrapper(double avgThRangeScale, boost::filesystem::path workDir):
   avgThRangeScale_(avgThRangeScale),
-  lastFileNumber_(0)
+  lastFileNumber_(0),
+  workDir_( std::move(workDir) ),
+  trainingSet_( readTrainingSet() )
 {
   updateImpl();
 }
@@ -35,13 +35,23 @@ void FaceRecognizerWrapper::update(const Entries& newEntries)
 }
 
 
-FaceRecognizer::TrainingSet FaceRecognizerWrapper::readTrainingSet(const boost::filesystem::path& workDir)
+void FaceRecognizerWrapper::updateImpl(void)
+{
+  // train new classifier
+  FaceRecognizerPtr tmp( new FaceRecognizer{trainingSet_, avgThRangeScale_} );
+  // make it the default one
+  swap(tmp, rec_);
+  assert( rec_.get()!=nullptr );
+}
+
+
+FaceRecognizer::TrainingSet FaceRecognizerWrapper::readTrainingSet(void) const
 {
   Video::FaceRecognizer::TrainingSet trainSet;
 
   // iterate over the root directory's content
   const fs::directory_iterator dirEnd;
-  for(fs::directory_iterator dirIt(workDir); dirIt!=dirEnd; ++dirIt)
+  for(fs::directory_iterator dirIt(workDir_); dirIt!=dirEnd; ++dirIt)
   {
     const std::string label = dirIt->path().filename().string();
     if( !fs::is_directory( dirIt->path() ) )
@@ -61,16 +71,6 @@ FaceRecognizer::TrainingSet FaceRecognizerWrapper::readTrainingSet(const boost::
 
   // return final set
   return trainSet;
-}
-
-
-void FaceRecognizerWrapper::updateImpl(void)
-{
-  // train new classifier
-  FaceRecognizerPtr tmp( new FaceRecognizer{trainingSet_, avgThRangeScale_} );
-  // make it the default one
-  swap(tmp, rec_);
-  assert( rec_.get()!=nullptr );
 }
 
 

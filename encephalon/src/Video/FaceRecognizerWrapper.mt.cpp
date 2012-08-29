@@ -5,14 +5,14 @@
 
 #include "Video/FrameGrabberV4L.hpp"
 #include "Video/FaceDetector.hpp"
-#include "Video/FaceRecognizer.hpp"
+#include "Video/FaceRecognizerWrapper.hpp"
 #include "Util/ClockTimer.hpp"
 
 namespace fs = boost::filesystem;
 using namespace std;
 
 
-void markFacesOnImage(const Video::FaceDetector::Faces& faces, const Video::FaceRecognizer& fr, cv::Mat& img)
+void markFacesOnImage(const Video::FaceDetector::Faces& faces, const Video::FaceRecognizerWrapper& frw, cv::Mat& img)
 {
   CvFont font;
   cvInitFont( &font, CV_FONT_HERSHEY_COMPLEX_SMALL, 1.0, 1.0);
@@ -27,7 +27,7 @@ void markFacesOnImage(const Video::FaceDetector::Faces& faces, const Video::Face
     // try detecting face
     cv::Mat faceGray;
     cvtColor( faceImg, faceGray, CV_BGR2GRAY );
-    const char* name = fr.recognize(faceGray);
+    const char* name = frw->recognize(faceGray);
     if(name==nullptr)
       name = "< UNKNOWN >";
     // check the size of the text
@@ -38,30 +38,6 @@ void markFacesOnImage(const Video::FaceDetector::Faces& faces, const Video::Face
     const auto point = cvPoint( f.tl().x+(f.size().width-txtSize.width)/2, f.tl().y+(f.size().height-txtSize.height)/2 );
     cvPutText( &tmp, name, point, &font, CV_RGB(0,255,0) );
   }
-}
-
-
-Video::FaceRecognizer::TrainingSet readTrainSet(const fs::path& dir)
-{
-  Video::FaceRecognizer::TrainingSet trainSet;
-  const fs::directory_iterator dirEnd;
-  // iterate over the root directory's content
-  for(fs::directory_iterator dirIt(dir); dirIt!=dirEnd; ++dirIt)
-  {
-    const string label = dirIt->path().filename().string();
-    assert( fs::is_directory( dirIt->path() ) && "invalid direcotry strucutre" );
-    // iterate over pictures
-    for(fs::directory_iterator picIt(*dirIt); picIt!=dirEnd; ++picIt)
-    {
-      const fs::path file = picIt->path();
-      assert( fs::is_regular_file(file) && "invalid direcotry strucutre" );
-      const cv::Mat  pic  = cv::imread( file.string(), 0 ); // image MUST BE GRAY SCALE!
-      // add to training set
-      trainSet.addElement(pic, label);
-    }
-  }
-  // return final set
-  return trainSet;
 }
 
 
@@ -76,13 +52,10 @@ int main(int argc, char** argv)
     return 1;
   }
 
-  cout << "reading training set directory..." << endl;
-  Video::FaceRecognizer::TrainingSet trainSet = readTrainSet(argv[3]);
-  cout << "got " << trainSet.samples() << " samples" << endl;
   cout << "learning face recognition... (may take a while)" << endl;
   const Util::ClockTimerRT faceRecLearnClk;
-  Video::FaceRecognizer faceRecognizer(trainSet, 4.6);
-  cout << "learned in " << faceRecLearnClk.elapsed() << "[s]; threshold is " << faceRecognizer.threshold() << endl;
+  Video::FaceRecognizerWrapper frw(4.6, argv[3]);
+  cout << "learned in " << faceRecLearnClk.elapsed() << "[s]; threshold is " << frw->threshold() << endl;
 
   cout << "initializing face detector..." << endl;
   Video::FaceDetector faceDetector(argv[2], 1.0/6);
@@ -117,7 +90,7 @@ int main(int argc, char** argv)
       // grab
       cv::Mat                    frame = fg->grab();
       Video::FaceDetector::Faces faces = faceDetector.detect(frame);
-      markFacesOnImage(faces, faceRecognizer, frame);
+      markFacesOnImage(faces, frw, frame);
       if( faces.empty() )
         cerr << '.';
       else
