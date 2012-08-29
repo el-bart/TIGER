@@ -68,6 +68,9 @@ private:
 };
 
 
+typedef std::unique_ptr<FaceRecognizer> FaceRecognizerPtr;
+
+
 inline void swap(FaceRecognizer& first, FaceRecognizer& second)
 {
   first.swap(second);

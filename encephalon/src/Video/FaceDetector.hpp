@@ -1,6 +1,7 @@
 #ifndef INCLUDE_VIDEO_FACEDETECTOR_HPP_FILE
 #define INCLUDE_VIDEO_FACEDETECTOR_HPP_FILE
 
+#include <memory>
 #include <string>
 #include <vector>
 #include <opencv2/opencv.hpp>
@@ -28,6 +29,9 @@ private:
   cv::Mat               gray_;
   cv::Mat               small_;
 };
+
+
+typedef std::unique_ptr<FaceDetector> FaceDetectorPtr;
 
 }
 
