@@ -7,8 +7,28 @@
 namespace Video
 {
 
-FaceRecognizer::FaceRecognizer(const TrainingSet& set, const double avgThRangeScale):
-  avgThRangeScale_(avgThRangeScale),
+
+cv::Mat FaceRecognizer::ImageNormalizer::normalize(const cv::Mat& in) const
+{
+  // sanity check
+  if( in.type() != CV_8UC1 )
+    throw Util::Exception( UTIL_LOCSTRM << "face image must be grayscale (CV_8UC1)" );
+  // normalization
+  cv::medianBlur(in, tmp_[0], 1+2);         // remove noise
+  equalizeHist(tmp_[0], tmp_[1]);           // equalize histogram
+  cv::resize(tmp_[1], tmp_[0], size_);      // resize image to the fixed-size
+  return tmp_[0];
+}
+
+
+void FaceRecognizer::TrainingSet::shuffle(void)
+{
+  std::random_shuffle( entries_.begin(), entries_.end() );
+}
+
+
+FaceRecognizer::FaceRecognizer(const TrainingSet& set, const double avgThRangeScale, const double maxThreshold):
+  imgNorm_( set.normalizer() ),
   faceRecognizer_( makeFaceRecognizer() )
 {
   if( set.entries().size() < 2 )
@@ -76,7 +96,9 @@ FaceRecognizer::FaceRecognizer(const TrainingSet& set, const double avgThRangeSc
       thMax = dist;
   }
   const double diff = thMax - thMin;
-  threshold_ = thMin + diff * avgThRangeScale_;
+  threshold_ = thMin + diff * avgThRangeScale;
+  if( threshold_ > maxThreshold )
+    threshold_ = maxThreshold;
 
   // final version needs to be sorted by int ids, for easier search
   {
@@ -87,9 +109,10 @@ FaceRecognizer::FaceRecognizer(const TrainingSet& set, const double avgThRangeSc
 }
 
 
-const char* FaceRecognizer::recognize(const cv::Mat& face) const
+const char* FaceRecognizer::recognize(const cv::Mat& faceIn) const
 {
   // sanity check
+  cv::Mat face = imgNorm_.normalize(faceIn);
   if( face.type() != CV_8UC1 )
     throw Util::Exception( UTIL_LOCSTRM << "face image for recognition must be grayscale (CV_8UC1)" );
 
@@ -112,7 +135,7 @@ const char* FaceRecognizer::recognize(const cv::Mat& face) const
 
 void FaceRecognizer::swap(FaceRecognizer& other)
 {
-  std::swap(avgThRangeScale_, other.avgThRangeScale_);
+  std::swap(imgNorm_, other.imgNorm_);
   std::swap(threshold_, other.threshold_);
   std::swap(faceRecognizer_, other.faceRecognizer_);
   std::swap(labMap_, other.labMap_);
@@ -122,7 +145,9 @@ void FaceRecognizer::swap(FaceRecognizer& other)
 FaceRecognizer::FaceRecognizerPtr FaceRecognizer::makeFaceRecognizer(void) const
 {
   // we need to do mapping from cv::Ptr<> to std::unique_ptr<>
-  cv::Ptr<cv::FaceRecognizer> tmp( cv::createLBPHFaceRecognizer() );
+  //cv::Ptr<cv::FaceRecognizer> tmp( cv::createLBPHFaceRecognizer() );
+  cv::Ptr<cv::FaceRecognizer> tmp( cv::createFisherFaceRecognizer() );
+  //cv::Ptr<cv::FaceRecognizer> tmp( cv::createEigenFaceRecognizer() );
   FaceRecognizerPtr ptr(tmp.obj);
   tmp.obj = nullptr;
   return ptr;

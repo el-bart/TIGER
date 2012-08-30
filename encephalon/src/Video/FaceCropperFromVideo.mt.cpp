@@ -39,7 +39,7 @@ void markAndSaveFaces(const Video::FaceDetector::Faces& faces, cv::Mat& img, con
 
 Video::FaceRecognizer::TrainingSet readTrainSet(const fs::path& dir)
 {
-  Video::FaceRecognizer::TrainingSet trainSet;
+  Video::FaceRecognizer::TrainingSet trainSet( cv::Size{180,220} );
   const fs::directory_iterator dirEnd;
   // iterate over the root directory's content
   for(fs::directory_iterator dirIt(dir); dirIt!=dirEnd; ++dirIt)

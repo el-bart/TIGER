@@ -5,6 +5,7 @@
 #include <utility>
 #include <cassert>
 #include <boost/filesystem.hpp>
+#include <boost/noncopyable.hpp>
 
 #include "Util/Exception.hpp"
 #include "Video/FaceRecognizer.hpp"
@@ -13,7 +14,7 @@
 namespace Video
 {
 
-class FaceRecognizerWrapper
+class FaceRecognizerWrapper: private boost::noncopyable
 {
 public:
   typedef FaceRecognizer::TrainingSet::Entries Entries;
@@ -22,18 +23,21 @@ public:
   //                   in the same class. if minimum distance between every element, within the set, is in the range
   //                   [300;500] than acceptance threshold will be equal to 300+(500-300)*avgThRangeScale. this value
   //                   should be at least 1.0. values between 2-6 are reasonable
-  FaceRecognizerWrapper(double avgThRangeScale, boost::filesystem::path workDir);
+  FaceRecognizerWrapper(double avgThRangeScale, double maxThreshold, boost::filesystem::path workDir, cv::Size size);
 
   const FaceRecognizer* operator->(void) const { assert( rec_.get()!=nullptr ); return rec_.get(); }
 
   void update(const Entries& newEntries);
 
+  size_t samples(void) const { return trainingSet_.samples(); }
+
 private:
   void updateImpl(void);
-  FaceRecognizer::TrainingSet readTrainingSet(void) const;
+  FaceRecognizer::TrainingSet readTrainingSet(cv::Size size) const;
   void saveAsFile(const Entries::value_type& entry);
 
-  double                      avgThRangeScale_;
+  const double                avgThRangeScale_;
+  const double                maxThreshold_;
   FaceRecognizerPtr           rec_;
   size_t                      lastFileNumber_;
   boost::filesystem::path     workDir_;

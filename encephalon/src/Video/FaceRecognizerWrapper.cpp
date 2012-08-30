@@ -10,11 +10,15 @@ namespace fs = boost::filesystem;
 namespace Video
 {
 
-FaceRecognizerWrapper::FaceRecognizerWrapper(double avgThRangeScale, boost::filesystem::path workDir):
+FaceRecognizerWrapper::FaceRecognizerWrapper(const double            avgThRangeScale,
+                                             const double            maxThreshold,
+                                             boost::filesystem::path workDir,
+                                             const cv::Size          size):
   avgThRangeScale_(avgThRangeScale),
+  maxThreshold_(maxThreshold),
   lastFileNumber_(0),
   workDir_( std::move(workDir) ),
-  trainingSet_( readTrainingSet() )
+  trainingSet_( readTrainingSet(size) )
 {
   updateImpl();
 }
@@ -37,17 +41,19 @@ void FaceRecognizerWrapper::update(const Entries& newEntries)
 
 void FaceRecognizerWrapper::updateImpl(void)
 {
+  // add some entropy when learning
+  trainingSet_.shuffle();
   // train new classifier
-  FaceRecognizerPtr tmp( new FaceRecognizer{trainingSet_, avgThRangeScale_} );
+  FaceRecognizerPtr tmp( new FaceRecognizer{trainingSet_, avgThRangeScale_, maxThreshold_} );
   // make it the default one
   swap(tmp, rec_);
   assert( rec_.get()!=nullptr );
 }
 
 
-FaceRecognizer::TrainingSet FaceRecognizerWrapper::readTrainingSet(void) const
+FaceRecognizer::TrainingSet FaceRecognizerWrapper::readTrainingSet(const cv::Size size) const
 {
-  Video::FaceRecognizer::TrainingSet trainSet;
+  Video::FaceRecognizer::TrainingSet trainSet(size);
 
   // iterate over the root directory's content
   const fs::directory_iterator dirEnd;

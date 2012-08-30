@@ -16,6 +16,20 @@ namespace Video
 class FaceRecognizer
 {
 public:
+  class ImageNormalizer
+  {
+  public:
+    explicit ImageNormalizer(const cv::Size size):
+      size_(size)
+    { }
+
+    cv::Mat normalize(const cv::Mat& in) const;
+
+  private:
+    mutable cv::Mat tmp_[2];
+    cv::Size        size_;
+  };
+
   class TrainingSet
   {
   private:
@@ -24,12 +38,16 @@ public:
   public:
     typedef std::vector<Entry> Entries;
 
-    void addElement(const cv::Mat& face, std::string name)
+    explicit TrainingSet(const cv::Size size):
+      imgNorm_(size)
+    { }
+
+    void addElement(cv::Mat face, std::string name)
     {
-      if( face.type() != CV_8UC1 )
-        throw Util::Exception( UTIL_LOCSTRM << "face image for learning must be grayscale (CV_8UC1)" );
-      entries_.push_back( Entry{std::move(name), face} );
+      entries_.push_back( Entry{ std::move(name), imgNorm_.normalize(face) } );
     }
+
+    void shuffle(void);
 
     size_t samples(void) const { return entries_.size(); }
 
@@ -37,8 +55,11 @@ public:
 
     void reserveAdditional(const size_t more) { entries_.reserve( entries_.capacity() + more ); }
 
+    const ImageNormalizer& normalizer(void) const { return imgNorm_; }
+
   private:
-    Entries entries_;
+    Entries         entries_;
+    ImageNormalizer imgNorm_;
   };
 
 
@@ -46,9 +67,9 @@ public:
   //                   in the same class. if minimum distance between every element, within the set, is in the range
   //                   [300;500] than acceptance threshold will be equal to 300+(500-300)*avgThRangeScale. this value
   //                   should be at least 1.0. values between 2-6 are reasonable
-  FaceRecognizer(const TrainingSet& set, double avgThRangeScale);
+  FaceRecognizer(const TrainingSet& set, double avgThRangeScale, double maxThreshold);
 
-  const char* recognize(const cv::Mat& face) const;
+  const char* recognize(const cv::Mat& faceIn) const;
 
   void swap(FaceRecognizer& other);
 
@@ -61,7 +82,7 @@ private:
 
   FaceRecognizerPtr makeFaceRecognizer(void) const;
 
-  double            avgThRangeScale_;
+  ImageNormalizer   imgNorm_;
   double            threshold_;
   FaceRecognizerPtr faceRecognizer_;
   LabelMap          labMap_;

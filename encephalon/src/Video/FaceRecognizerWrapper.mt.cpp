@@ -12,11 +12,12 @@ namespace fs = boost::filesystem;
 using namespace std;
 
 
-void markFacesOnImage(const Video::FaceDetector::Faces& faces, const Video::FaceRecognizerWrapper& frw, cv::Mat& img)
+size_t markFacesOnImage(const Video::FaceDetector::Faces& faces, const Video::FaceRecognizerWrapper& frw, cv::Mat& img)
 {
   CvFont font;
   cvInitFont( &font, CV_FONT_HERSHEY_COMPLEX_SMALL, 1.0, 1.0);
 
+  size_t recognized = 0;
   for(const auto& f: faces)
   {
     // mark face with a rectangle
@@ -30,6 +31,8 @@ void markFacesOnImage(const Video::FaceDetector::Faces& faces, const Video::Face
     const char* name = frw->recognize(faceGray);
     if(name==nullptr)
       name = "< UNKNOWN >";
+    else
+      ++recognized;
     // check the size of the text
     CvSize txtSize;
     cvGetTextSize(name, &font, &txtSize, nullptr);
@@ -38,12 +41,14 @@ void markFacesOnImage(const Video::FaceDetector::Faces& faces, const Video::Face
     const auto point = cvPoint( f.tl().x+(f.size().width-txtSize.width)/2, f.tl().y+(f.size().height-txtSize.height)/2 );
     cvPutText( &tmp, name, point, &font, CV_RGB(0,255,0) );
   }
+
+  return recognized;
 }
 
 
 int main(int argc, char** argv)
 {
-  cout << setprecision(3);
+  cout << setprecision(3) << fixed;
 
   if( argc != 1+3 )
   {
@@ -54,8 +59,8 @@ int main(int argc, char** argv)
 
   cout << "learning face recognition... (may take a while)" << endl;
   const Util::ClockTimerRT faceRecLearnClk;
-  Video::FaceRecognizerWrapper frw(4.6, argv[3]);
-  cout << "learned in " << faceRecLearnClk.elapsed() << "[s]; threshold is " << frw->threshold() << endl;
+  Video::FaceRecognizerWrapper frw( 1.0, 1000, argv[3], cv::Size(90,110) );
+  cout << "learned from " << frw.samples() << " samples in " << faceRecLearnClk.elapsed() << "[s]; threshold is " << frw->threshold() << endl;
 
   cout << "initializing face detector..." << endl;
   Video::FaceDetector faceDetector(argv[2], 1.0/6);
@@ -81,7 +86,7 @@ int main(int argc, char** argv)
     try
     {
       // check is exit is requested
-      if( cv::waitKey(10) >= 0 )
+      if( cv::waitKey(10) == 'q' )
       {
         cout << endl;
         cout << "breaking on user request";
@@ -90,11 +95,17 @@ int main(int argc, char** argv)
       // grab
       cv::Mat                    frame = fg->grab();
       Video::FaceDetector::Faces faces = faceDetector.detect(frame);
-      markFacesOnImage(faces, frw, frame);
       if( faces.empty() )
+      {
         cerr << '.';
+      }
       else
-        cerr << 'f';
+      {
+        if( markFacesOnImage(faces, frw, frame) > 0 )
+          cerr << 'F';
+        else
+          cerr << 'f';
+      }
       // output
       imshow( winName, frame );
     }
