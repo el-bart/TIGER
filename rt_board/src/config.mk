@@ -33,7 +33,7 @@ endif # TC=gcc
 
 # extra flags, if needed
 export CFLAGS  +=
-export CXXFLAGS+=
+export CXXFLAGS+=-std=c++11
 export LDFLAGS +=
 
 # default target
