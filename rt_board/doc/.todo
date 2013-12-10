@@ -12,4 +12,7 @@
     <note priority="medium" time="1386698131">
         consider using single uC for each engine and controll them by rs232
     </note>
+    <note priority="medium" time="1386698979">
+        how about using uC for Hall sensing with a connection with voltage controlled oscilator to create hardware feedback loop?
+    </note>
 </todo>
