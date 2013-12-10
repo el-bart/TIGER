@@ -3,4 +3,13 @@
     <note priority="medium" time="1386697683">
         prepare protocol for communication
     </note>
+    <note priority="medium" time="1386697782">
+        add engine speed sensing using Hall effect and 2 magnets
+    </note>
+    <note priority="medium" time="1386698099">
+        add engine power sensing using ACS712ELCTR-20A-T hall sensor
+    </note>
+    <note priority="medium" time="1386698131">
+        consider using single uC for each engine and controll them by rs232
+    </note>
 </todo>
