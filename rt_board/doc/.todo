@@ -15,4 +15,13 @@
     <note priority="medium" time="1386698979">
         how about using uC for Hall sensing with a connection with voltage controlled oscilator to create hardware feedback loop?
     </note>
+    <note priority="medium" time="1386699016">
+        rework board to use STM23F051R8T7 uC
+    </note>
+    <note priority="medium" time="1386699024">
+        rework board to use SMDs
+    </note>
+    <note priority="medium" time="1386699090">
+        consider using DRV8800PWP mos-based H-bridge for engine control
+    </note>
 </todo>
