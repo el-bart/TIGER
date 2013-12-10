@@ -1,3 +1,5 @@
+resistance: 9[Ohm]
+nominal voltage: 7.2[V]
 free-run current: ~0.45[A]
 heavy-load current: 1.2~1.6[A]
 
