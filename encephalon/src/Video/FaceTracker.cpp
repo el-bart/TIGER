@@ -36,10 +36,12 @@ FaceTracker::Faces FaceTracker::processSingleFrame(const cv::Mat& frame) const
 {
   FaceDetector::Faces detected = det_->detect(frame);
   Faces               faces;
+  /*
   for(const auto& faceRect: detected)
   {
     // TODO
   }
+  */
   // TODO
   return faces;
 }
@@ -55,6 +57,13 @@ FaceTracker::Faces FaceTracker::postProcess(Faces faces)
 void FaceTracker::updateRecognizer(const FaceSequence& seq)
 {
   // TODO
+}
+
+
+std::string FaceTracker::labelCreator(void)
+{
+  // TODO
+  return "???";
 }
 
 }

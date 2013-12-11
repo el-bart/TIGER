@@ -35,8 +35,22 @@ public:
   };
   // sequence of face recognitions on the movie
   typedef std::deque<FaceFrameInfo> FaceSequence;
+  // face images sequence and its description
+  struct FaceSequenceInfo
+  {
+    enum class SequenceClass
+    {
+      NOT_YET_DETERMINED,
+      RECOGNIZED,
+      UNKNOWN
+    };
+
+    FaceSequence  faceSeq_;
+    SequenceClass seqClass_;
+    std::string   label_;       // meaningful only if seqClass_==RECOGNIZED
+  };
   // historical data on face tracking
-  typedef std::deque<FaceSequence> FaceHistory;
+  typedef std::deque<FaceSequenceInfo> FaceHistory;
 
   // configuration paramters
   struct Parameters
@@ -54,6 +68,7 @@ private:
   Faces processSingleFrame(const cv::Mat& frame) const;
   Faces postProcess(Faces faces);
   void updateRecognizer(const FaceSequence& seq);
+  std::string labelCreator(void);
 
   // detection and recognition for single frame
   FaceDetectorPtr          det_;
