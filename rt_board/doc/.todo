@@ -36,6 +36,12 @@
     <note priority="medium" time="1387379409">
         design PCB for given schema
     </note>
+    <note priority="medium" time="1387381063">
+        add reest switch
+    </note>
+    <note priority="medium" time="1387381069">
+        add boot0 switch
+    </note>
     <note priority="verylow" time="1387379463">
         consider using led driver instead of transistors and resistors for multiple leds
     </note>
