@@ -26,3 +26,6 @@ USART (Panda):
  - USART2
    - PA2 (TX)
    - PA3 (RX)
+
+LEDs:
+ - user1 (PB0)
