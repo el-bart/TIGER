@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
-    <note priority="medium" time="1385378877">
+    <note priority="medium" time="1385378877" done="1387379375">
         consider using Hall effect as a feedback from engines
     </note>
 </todo>
