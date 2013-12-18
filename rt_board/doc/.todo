@@ -1,27 +1,33 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
+    <note priority="medium" time="1386697782" done="1387374233">
+        add engine speed sensing using Hall effect and 2 magnets
+    </note>
+    <note priority="medium" time="1386698099" done="1387374239">
+        add engine power sensing using ACS712ELCTR-20A-T hall sensor
+    </note>
+    <note priority="medium" time="1386698131" done="1387374251">
+        consider using single uC for each engine and controll them by rs232
+    </note>
+    <note priority="medium" time="1386698979" done="1387374260">
+        how about using uC for Hall sensing with a connection with voltage controlled oscilator to create hardware feedback loop?
+        <comment>
+            not elastic enough for development purposes
+        </comment>
+    </note>
+    <note priority="medium" time="1386699016" done="1387374283">
+        rework board to use STM23F051R8T7 uC
+    </note>
+    <note priority="medium" time="1386699024" done="1387374286">
+        rework board to use SMDs
+    </note>
+    <note priority="medium" time="1386699090" done="1387374293">
+        consider using DRV8800PWP mos-based H-bridge for engine control
+    </note>
     <note priority="medium" time="1386697683">
         prepare protocol for communication
     </note>
-    <note priority="medium" time="1386697782">
-        add engine speed sensing using Hall effect and 2 magnets
-    </note>
-    <note priority="medium" time="1386698099">
-        add engine power sensing using ACS712ELCTR-20A-T hall sensor
-    </note>
-    <note priority="medium" time="1386698131">
-        consider using single uC for each engine and controll them by rs232
-    </note>
-    <note priority="medium" time="1386698979">
-        how about using uC for Hall sensing with a connection with voltage controlled oscilator to create hardware feedback loop?
-    </note>
-    <note priority="medium" time="1386699016">
-        rework board to use STM23F051R8T7 uC
-    </note>
-    <note priority="medium" time="1386699024">
-        rework board to use SMDs
-    </note>
-    <note priority="medium" time="1386699090">
-        consider using DRV8800PWP mos-based H-bridge for engine control
+    <note priority="medium" time="1387374323">
+        add protections against inverse voltage connection
     </note>
 </todo>
