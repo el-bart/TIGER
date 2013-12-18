@@ -18502,13 +18502,13 @@ Source: www.kingbright.com</description>
 <instance part="SUPPLY10" gate="0V" x="-43.18" y="68.58"/>
 <instance part="R2" gate="G$1" x="-68.58" y="96.52" rot="R270"/>
 <instance part="C7" gate="G$1" x="-68.58" y="86.36"/>
-<instance part="Q1" gate="G$1" x="-88.9" y="73.66" rot="R270"/>
+<instance part="Q1" gate="G$1" x="-60.96" y="58.42"/>
 <instance part="SUPPLY11" gate="0V" x="-68.58" y="76.2"/>
 <instance part="SUPPLY12" gate="+5V" x="-68.58" y="106.68"/>
-<instance part="C8" gate="G$1" x="-91.44" y="81.28" rot="R270"/>
-<instance part="C9" gate="G$1" x="-91.44" y="63.5" rot="R270"/>
-<instance part="SUPPLY13" gate="0V" x="-99.06" y="81.28" rot="R270"/>
-<instance part="SUPPLY14" gate="0V" x="-99.06" y="63.5" rot="R270"/>
+<instance part="C8" gate="G$1" x="-68.58" y="55.88"/>
+<instance part="C9" gate="G$1" x="-50.8" y="55.88"/>
+<instance part="SUPPLY13" gate="0V" x="-68.58" y="48.26"/>
+<instance part="SUPPLY14" gate="0V" x="-50.8" y="48.26"/>
 <instance part="SUPPLY15" gate="0V" x="-38.1" y="-7.62"/>
 <instance part="SUPPLY16" gate="0V" x="-33.02" y="-7.62"/>
 <instance part="SUPPLY17" gate="0V" x="-27.94" y="-7.62"/>
@@ -19076,25 +19076,22 @@ Source: www.kingbright.com</description>
 <segment>
 <pinref part="Q1" gate="G$1" pin="1"/>
 <pinref part="C8" gate="G$1" pin="1"/>
-<wire x1="-88.9" y1="81.28" x2="-88.9" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-68.58" y1="58.42" x2="-63.5" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="U1" gate="A" pin="PF0-OSC_IN"/>
-<wire x1="-25.4" y1="66.04" x2="-78.74" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="-78.74" y1="66.04" x2="-78.74" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="-78.74" y1="76.2" x2="-88.9" y2="76.2" width="0.1524" layer="91"/>
-<junction x="-88.9" y="76.2"/>
+<wire x1="-25.4" y1="66.04" x2="-63.5" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-63.5" y1="66.04" x2="-63.5" y2="58.42" width="0.1524" layer="91"/>
+<junction x="-63.5" y="58.42"/>
 </segment>
 </net>
 <net name="N$8" class="0">
 <segment>
 <pinref part="Q1" gate="G$1" pin="2"/>
 <pinref part="C9" gate="G$1" pin="1"/>
-<wire x1="-88.9" y1="63.5" x2="-88.9" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-50.8" y1="58.42" x2="-58.42" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="U1" gate="A" pin="PF1-OSC_OUT"/>
-<wire x1="-25.4" y1="63.5" x2="-81.28" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="-81.28" y1="63.5" x2="-81.28" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="-81.28" y1="71.12" x2="-83.82" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="-83.82" y1="71.12" x2="-88.9" y2="71.12" width="0.1524" layer="91"/>
-<junction x="-88.9" y="71.12"/>
+<wire x1="-25.4" y1="63.5" x2="-58.42" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="-58.42" y1="63.5" x2="-58.42" y2="58.42" width="0.1524" layer="91"/>
+<junction x="-58.42" y="58.42"/>
 </segment>
 </net>
 <net name="N$3" class="0">
