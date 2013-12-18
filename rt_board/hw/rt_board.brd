@@ -2375,6 +2375,19 @@ Source: http://www.osram.convergy.de/ ... LG_LY Q971.pdf</description>
 </package>
 </packages>
 </library>
+<library name="basz">
+<packages>
+<package name="SPST-NO">
+<smd name="P$1" x="-1.5" y="0" dx="1.778" dy="0.9144" layer="1" rot="R90"/>
+<smd name="P$2" x="1.5" y="0" dx="1.778" dy="0.9144" layer="1" rot="R90"/>
+<wire x1="-1.5" y1="1.5" x2="1.5" y2="1.5" width="0.127" layer="20"/>
+<wire x1="1.5" y1="1.5" x2="1.5" y2="-1.5" width="0.127" layer="20"/>
+<wire x1="1.5" y1="-1.5" x2="-1.5" y2="-1.5" width="0.127" layer="20"/>
+<wire x1="-1.5" y1="-1.5" x2="-1.5" y2="1.5" width="0.127" layer="20"/>
+<circle x="0" y="0" radius="0.70710625" width="0.127" layer="20"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2722,6 +2735,8 @@ design rules under a new name.</description>
 <attribute name="OC_FARNELL" value="1894713" x="-2.54" y="-87.63" size="1.778" layer="27" display="off"/>
 </element>
 <element name="LED2" library="led" package="CHIPLED_0603" value="GREEN" x="-10.16" y="-90.17"/>
+<element name="SW1" library="basz" package="SPST-NO" value="B3U-1000PM-B" x="60.96" y="12.7"/>
+<element name="SW2" library="basz" package="SPST-NO" value="B3U-1000PM-B" x="67.31" y="7.62"/>
 </elements>
 <signals>
 <signal name="0V">
@@ -2784,6 +2799,7 @@ design rules under a new name.</description>
 <contactref element="U5" pad="16"/>
 <contactref element="LED1" pad="C"/>
 <contactref element="U7" pad="2"/>
+<contactref element="SW2" pad="P$1"/>
 <wire x1="61.81" y1="62.23" x2="66.04" y2="58.42" width="0" layer="19" extent="1-1"/>
 <wire x1="47.5488" y1="57.6834" x2="61.81" y2="62.23" width="0" layer="19" extent="1-1"/>
 <wire x1="45.1866" y1="50.3174" x2="47.5488" y2="57.6834" width="0" layer="19" extent="1-1"/>
@@ -2842,6 +2858,7 @@ design rules under a new name.</description>
 <wire x1="-5.08" y1="-74.18" x2="1.27" y2="-62.23" width="0" layer="19" extent="1-1"/>
 <wire x1="5.93" y1="-74.93" x2="-5.08" y2="-74.18" width="0" layer="19" extent="1-1"/>
 <wire x1="-3.4798" y1="-88.2904" x2="-5.08" y2="-74.18" width="0" layer="19" extent="1-1"/>
+<wire x1="65.81" y1="7.62" x2="-3.4798" y2="-88.2904" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+5V">
 <contactref element="IC1" pad="3"/>
@@ -2860,6 +2877,7 @@ design rules under a new name.</description>
 <contactref element="U2" pad="16"/>
 <contactref element="R17" pad="1"/>
 <contactref element="LED2" pad="A"/>
+<contactref element="SW1" pad="P$2"/>
 <wire x1="61.81" y1="58.42" x2="66.04" y2="63.5" width="0" layer="19" extent="1-1"/>
 <wire x1="54.5592" y1="46.4566" x2="61.81" y2="58.42" width="0" layer="19" extent="1-1"/>
 <wire x1="45.1866" y1="55.8292" x2="54.5592" y2="46.4566" width="0" layer="19" extent="1-1"/>
@@ -2875,6 +2893,7 @@ design rules under a new name.</description>
 <wire x1="86.741" y1="39.116" x2="61.81" y2="58.42" width="0" layer="19" extent="1-1"/>
 <wire x1="-5.93" y1="-80.01" x2="13.84" y2="12.7" width="0" layer="19" extent="1-1"/>
 <wire x1="-10.16" y1="-90.92" x2="-5.93" y2="-80.01" width="0" layer="19" extent="1-1"/>
+<wire x1="62.46" y1="12.7" x2="-10.16" y2="-90.92" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+12V">
 <contactref element="F1" pad="2"/>
@@ -2910,16 +2929,20 @@ design rules under a new name.</description>
 <signal name="N$5">
 <contactref element="U1" pad="60"/>
 <contactref element="R1" pad="2"/>
+<contactref element="SW1" pad="P$1"/>
 <wire x1="31.33" y1="44.45" x2="49.0474" y2="57.6834" width="0" layer="19" extent="1-1"/>
+<wire x1="59.46" y1="12.7" x2="31.33" y2="44.45" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$6">
 <contactref element="U1" pad="7"/>
 <contactref element="R2" pad="2"/>
 <contactref element="C7" pad="1"/>
 <contactref element="SWD" pad="5"/>
+<contactref element="SW2" pad="P$2"/>
 <wire x1="45.1866" y1="52.832" x2="66.04" y2="53.34" width="0" layer="19" extent="1-1"/>
 <wire x1="24.98" y1="33.02" x2="45.1866" y2="52.832" width="0" layer="19" extent="1-1"/>
 <wire x1="26.8" y1="29.21" x2="24.98" y2="33.02" width="0" layer="19" extent="1-1"/>
+<wire x1="68.81" y1="7.62" x2="26.8" y2="29.21" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$7">
 <contactref element="Q1" pad="1"/>
