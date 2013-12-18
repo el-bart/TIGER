@@ -1,15 +1,28 @@
-PB1 - OC1A / PWM left
-PB2 - OC1B / PWM right
+LEFT ENGINE:
+ - quadrature encoder (TIM1):
+   - PA8 (CH1)
+   - PA9 (CH2)
+ - ADC current sensing: PA4 (ADC_IN4)
+ - PWM (TIM15): PB14 (CH1)
+ - mode: PB13
+ - phase (dir): PB12
+   - 1 = forward
+   - 0 = reverse
 
-PC0 - left engine backward
-PC1 - left engine forward
-PC2 - right engine backward
-PC3 - right engine forward
 
-PD0 - RXD
-PD1 - TXD
+RIGHT ENGINE:
+ - quadrature encoder (TIM3):
+   - PB4 (CH1)
+   - PB5 (CH2)
+ - ADC current sensing: PA5 (ADC_IN5)
+ - PWM (TIM15): PB15 (CH2)
+ - mode: PB13
+ - phase (dir): PB11
+   - 1 = forward
+   - 0 = reverse
 
-PD2 - INT0 / left engine impulse
-PD3 - INT1 / right engine impulse
 
-PD5 - LED
+USART (Panda):
+ - USART2
+   - PA2 (TX)
+   - PA3 (RX)
