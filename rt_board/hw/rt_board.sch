@@ -17392,7 +17392,7 @@ microswitch</description>
 <part name="C12" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100uF"/>
 <part name="SUPPLY48" library="supply2" deviceset="+12V" device=""/>
 <part name="SUPPLY49" library="supply2" deviceset="0V" device=""/>
-<part name="U4" library="Allegro-ACS712ELCTR-20A-T" deviceset="ACS712ELCTR-20A-T" device=""/>
+<part name="U4" library="Allegro-ACS712ELCTR-20A-T" deviceset="ACS712ELCTR-20A-T" device="" value="ACS712ELCTR-05B-T"/>
 <part name="C13" library="rcl" deviceset="C-EU" device="C1206" value="100nF"/>
 <part name="C14" library="rcl" deviceset="C-EU" device="C1206" value="1nF"/>
 <part name="SUPPLY50" library="supply2" deviceset="0V" device=""/>
@@ -17429,7 +17429,7 @@ microswitch</description>
 <part name="C18" library="rcl" deviceset="CPOL-EU" device="153CLV-0810" value="100uF"/>
 <part name="SUPPLY69" library="supply2" deviceset="+12V" device=""/>
 <part name="SUPPLY70" library="supply2" deviceset="0V" device=""/>
-<part name="U6" library="Allegro-ACS712ELCTR-20A-T" deviceset="ACS712ELCTR-20A-T" device=""/>
+<part name="U6" library="Allegro-ACS712ELCTR-20A-T" deviceset="ACS712ELCTR-20A-T" device="" value="ACS712ELCTR-05B-T"/>
 <part name="C19" library="rcl" deviceset="C-EU" device="C1206" value="100nF"/>
 <part name="C20" library="rcl" deviceset="C-EU" device="C1206" value="1nF"/>
 <part name="SUPPLY71" library="supply2" deviceset="0V" device=""/>
