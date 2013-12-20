@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
+    <note priority="high" time="1387379419" done="1387544787">
+        review schema for errors
+    </note>
     <note priority="medium" time="1386697782" done="1387374233">
         add engine speed sensing using Hall effect and 2 magnets
     </note>
@@ -24,11 +27,14 @@
     <note priority="medium" time="1386699090" done="1387374293">
         consider using DRV8800PWP mos-based H-bridge for engine control
     </note>
+    <note priority="medium" time="1387379409" done="1387544795">
+        design PCB for given schema
+    </note>
     <note priority="medium" time="1387381063" done="1387382334">
         add reest switch
     </note>
-    <note priority="high" time="1387379419">
-        review schema for errors
+    <note priority="medium" time="1387381069" done="1387382336">
+        add boot0 switch
     </note>
     <note priority="medium" time="1386697683">
         prepare protocol for communication
@@ -36,13 +42,13 @@
     <note priority="medium" time="1387374323">
         add protections against inverse voltage connection
     </note>
-    <note priority="medium" time="1387379409">
-        design PCB for given schema
+    <note priority="low" time="1387544773">
+        remove button for boot0 - w/o PA9 it won't be possible to program from Panda any way
     </note>
-    <note priority="medium" time="1387381069" done="1387382336">
-        add boot0 switch
-    </note>
-    <note priority="verylow" time="1387379463">
+    <note priority="verylow" time="1387379463" done="1387544807">
         consider using led driver instead of transistors and resistors for multiple leds
+        <comment>
+            not needed
+        </comment>
     </note>
 </todo>
