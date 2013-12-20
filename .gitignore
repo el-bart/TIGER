@@ -6,3 +6,4 @@ bzr_team.conf
 *.out
 .*.swp
 .*.kate-swp
+*~renumsch.scr
