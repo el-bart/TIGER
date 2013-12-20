@@ -17320,6 +17320,9 @@ microswitch</description>
 <part name="SUPPLY85" library="supply2" deviceset="+5V" device="" value="+3.3V"/>
 <part name="SUPPLY86" library="supply2" deviceset="0V" device=""/>
 <part name="R18" library="rcl" deviceset="R-EU_" device="R0603" value="240R"/>
+<part name="LED3" library="led" deviceset="LED" device="CHIPLED_0603" value="GREEN"/>
+<part name="R19" library="rcl" deviceset="R-EU_" device="R0603" value="240R"/>
+<part name="SUPPLY83" library="supply2" deviceset="+5V" device="" value="+3.3V"/>
 </parts>
 <sheets>
 <sheet>
@@ -17479,6 +17482,9 @@ microswitch</description>
 <instance part="SUPPLY85" gate="+5V" x="-104.14" y="96.52"/>
 <instance part="SUPPLY86" gate="0V" x="-83.82" y="76.2"/>
 <instance part="R18" gate="G$1" x="27.94" y="101.6" rot="R270"/>
+<instance part="LED3" gate="G$1" x="38.1" y="91.44"/>
+<instance part="R19" gate="G$1" x="38.1" y="101.6" rot="R270"/>
+<instance part="SUPPLY83" gate="+5V" x="38.1" y="111.76"/>
 </instances>
 <busses>
 </busses>
@@ -17846,6 +17852,11 @@ microswitch</description>
 <pinref part="R18" gate="G$1" pin="1"/>
 <pinref part="SUPPLY84" gate="+5V" pin="+5V"/>
 <wire x1="27.94" y1="109.22" x2="27.94" y2="106.68" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R19" gate="G$1" pin="1"/>
+<pinref part="SUPPLY83" gate="+5V" pin="+5V"/>
+<wire x1="38.1" y1="109.22" x2="38.1" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -18427,6 +18438,21 @@ microswitch</description>
 <pinref part="LED2" gate="G$1" pin="A"/>
 <pinref part="R18" gate="G$1" pin="2"/>
 <wire x1="27.94" y1="96.52" x2="27.94" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$47" class="0">
+<segment>
+<pinref part="U6" gate="A" pin="PB1"/>
+<pinref part="LED3" gate="G$1" pin="C"/>
+<wire x1="38.1" y1="86.36" x2="38.1" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="83.82" x2="20.32" y2="83.82" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$51" class="0">
+<segment>
+<pinref part="LED3" gate="G$1" pin="A"/>
+<pinref part="R19" gate="G$1" pin="2"/>
+<wire x1="38.1" y1="96.52" x2="38.1" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

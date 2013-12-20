@@ -29,3 +29,4 @@ USART (Panda):
 
 LEDs:
  - user1 (PB0)
+ - user2 (PB1)
