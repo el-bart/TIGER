@@ -14627,39 +14627,97 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="AK550/2">
-<description>&lt;b&gt;AK550/2-16DS-3.5V&lt;/b&gt; PTR- Meßtechnik&lt;p&gt;
-Conrad Elektronik Best. Nr. 729981 - 49</description>
-<wire x1="2.241" y1="0.872" x2="0.878" y2="-0.491" width="0.1524" layer="51"/>
-<wire x1="2.622" y1="0.491" x2="1.259" y2="-0.872" width="0.1524" layer="51"/>
-<wire x1="2.241" y1="0.491" x2="1.259" y2="-0.491" width="0.6096" layer="51"/>
-<wire x1="2.622" y1="0.491" x2="2.241" y2="0.872" width="0.1524" layer="51"/>
-<wire x1="1.259" y1="-0.872" x2="0.878" y2="-0.491" width="0.1524" layer="51"/>
-<wire x1="-1.259" y1="0.872" x2="-2.622" y2="-0.491" width="0.1524" layer="51"/>
-<wire x1="-0.878" y1="0.491" x2="-2.241" y2="-0.872" width="0.1524" layer="51"/>
-<wire x1="-1.259" y1="0.491" x2="-2.241" y2="-0.491" width="0.6096" layer="51"/>
-<wire x1="-0.878" y1="0.491" x2="-1.259" y2="0.872" width="0.1524" layer="51"/>
-<wire x1="-2.241" y1="-0.872" x2="-2.622" y2="-0.491" width="0.1524" layer="51"/>
-<wire x1="3.4" y1="2.6" x2="3.4" y2="-3.45" width="0.2032" layer="21"/>
-<wire x1="3.4" y1="-3.45" x2="-3.4" y2="-3.45" width="0.2032" layer="21"/>
-<wire x1="-3.4" y1="-3.45" x2="-3.4" y2="2.6" width="0.2032" layer="21"/>
-<wire x1="-3.4" y1="2.6" x2="3.4" y2="2.6" width="0.2032" layer="21"/>
-<wire x1="3.35" y1="1.8" x2="-3.3" y2="1.8" width="0.2032" layer="21"/>
-<wire x1="-3.3" y1="-3.15" x2="3.3" y2="-3.15" width="0.2032" layer="21"/>
-<wire x1="3.3" y1="-1.9" x2="-3.3" y2="-1.9" width="0.2032" layer="21"/>
-<wire x1="-2.75" y1="-2" x2="-2.75" y2="-3" width="0.1016" layer="21"/>
-<wire x1="-0.75" y1="-2" x2="-0.75" y2="-3" width="0.1016" layer="21"/>
-<wire x1="0.75" y1="-2" x2="0.75" y2="-3" width="0.1016" layer="21"/>
-<wire x1="2.75" y1="-2" x2="2.75" y2="-3" width="0.1016" layer="21"/>
-<circle x="1.75" y="0" radius="1.05" width="0.2032" layer="21"/>
-<circle x="-1.75" y="0" radius="1.05" width="0.2032" layer="21"/>
-<pad name="2" x="1.75" y="0" drill="1" diameter="1.5" shape="long" rot="R90"/>
-<pad name="1" x="-1.75" y="0" drill="1" diameter="1.5" shape="long" rot="R90"/>
-<text x="-3.175" y="3.175" size="1.778" layer="25">&gt;NAME</text>
-<text x="-3.175" y="-5.715" size="1.778" layer="27">&gt;VALUE</text>
+<package name="AK300/2">
+<description>&lt;b&gt;CONNECTOR&lt;/b&gt;</description>
+<wire x1="5.08" y1="6.223" x2="5.08" y2="3.175" width="0.1524" layer="21"/>
+<wire x1="5.08" y1="6.223" x2="-5.08" y2="6.223" width="0.1524" layer="21"/>
+<wire x1="5.08" y1="6.223" x2="5.588" y2="6.223" width="0.1524" layer="21"/>
+<wire x1="5.588" y1="6.223" x2="5.588" y2="1.397" width="0.1524" layer="21"/>
+<wire x1="5.588" y1="1.397" x2="5.08" y2="1.651" width="0.1524" layer="21"/>
+<wire x1="5.588" y1="-5.461" x2="5.08" y2="-5.207" width="0.1524" layer="21"/>
+<wire x1="5.08" y1="-5.207" x2="5.08" y2="-6.223" width="0.1524" layer="21"/>
+<wire x1="5.588" y1="-3.81" x2="5.08" y2="-4.064" width="0.1524" layer="21"/>
+<wire x1="5.08" y1="-4.064" x2="5.08" y2="-5.207" width="0.1524" layer="21"/>
+<wire x1="5.588" y1="-3.81" x2="5.588" y2="-5.461" width="0.1524" layer="21"/>
+<wire x1="0.4572" y1="-6.223" x2="0.4572" y2="-4.318" width="0.1524" layer="21"/>
+<wire x1="4.5212" y1="0.254" x2="4.5212" y2="-4.318" width="0.1524" layer="21"/>
+<wire x1="0.4572" y1="-6.223" x2="4.5212" y2="-6.223" width="0.1524" layer="21"/>
+<wire x1="4.5212" y1="-6.223" x2="5.08" y2="-6.223" width="0.1524" layer="21"/>
+<wire x1="-0.4826" y1="-6.223" x2="-0.4826" y2="-4.318" width="0.1524" layer="21"/>
+<wire x1="-0.4826" y1="-6.223" x2="0.4572" y2="-6.223" width="0.1524" layer="21"/>
+<wire x1="-4.5466" y1="0.254" x2="-4.5466" y2="-4.318" width="0.1524" layer="21"/>
+<wire x1="-5.08" y1="-6.223" x2="-4.5466" y2="-6.223" width="0.1524" layer="21"/>
+<wire x1="-4.5466" y1="-6.223" x2="-0.4826" y2="-6.223" width="0.1524" layer="21"/>
+<wire x1="0.4572" y1="-4.318" x2="4.5212" y2="-4.318" width="0.1524" layer="21"/>
+<wire x1="0.4572" y1="-4.318" x2="0.4572" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="4.5212" y1="-4.318" x2="4.5212" y2="-6.223" width="0.1524" layer="21"/>
+<wire x1="-0.4826" y1="-4.318" x2="-4.5466" y2="-4.318" width="0.1524" layer="21"/>
+<wire x1="-0.4826" y1="-4.318" x2="-0.4826" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="-4.5466" y1="-4.318" x2="-4.5466" y2="-6.223" width="0.1524" layer="21"/>
+<wire x1="4.1402" y1="-3.683" x2="4.1402" y2="-0.508" width="0.1524" layer="21"/>
+<wire x1="4.1402" y1="-3.683" x2="0.8382" y2="-3.683" width="0.1524" layer="21"/>
+<wire x1="0.8382" y1="-3.683" x2="0.8382" y2="-0.508" width="0.1524" layer="21"/>
+<wire x1="-0.8636" y1="-3.683" x2="-0.8636" y2="-0.508" width="0.1524" layer="21"/>
+<wire x1="-0.8636" y1="-3.683" x2="-4.1656" y2="-3.683" width="0.1524" layer="21"/>
+<wire x1="-4.1656" y1="-3.683" x2="-4.1656" y2="-0.508" width="0.1524" layer="21"/>
+<wire x1="-4.1656" y1="-0.508" x2="-3.7846" y2="-0.508" width="0.1524" layer="51"/>
+<wire x1="-0.8636" y1="-0.508" x2="-1.2446" y2="-0.508" width="0.1524" layer="51"/>
+<wire x1="0.8382" y1="-0.508" x2="1.2192" y2="-0.508" width="0.1524" layer="51"/>
+<wire x1="4.1402" y1="-0.508" x2="3.7592" y2="-0.508" width="0.1524" layer="51"/>
+<wire x1="-5.08" y1="-6.223" x2="-5.08" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-5.08" y1="0.635" x2="-5.08" y2="3.175" width="0.1524" layer="21"/>
+<wire x1="5.08" y1="1.651" x2="5.08" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="5.08" y1="0.635" x2="5.08" y2="-4.064" width="0.1524" layer="21"/>
+<wire x1="-5.08" y1="3.175" x2="5.08" y2="3.175" width="0.1524" layer="21"/>
+<wire x1="-5.08" y1="3.175" x2="-5.08" y2="6.223" width="0.1524" layer="21"/>
+<wire x1="5.08" y1="3.175" x2="5.08" y2="1.651" width="0.1524" layer="21"/>
+<wire x1="0.4572" y1="3.429" x2="0.4572" y2="5.969" width="0.1524" layer="21"/>
+<wire x1="0.4572" y1="5.969" x2="4.5212" y2="5.969" width="0.1524" layer="21"/>
+<wire x1="4.5212" y1="5.969" x2="4.5212" y2="3.429" width="0.1524" layer="21"/>
+<wire x1="4.5212" y1="3.429" x2="0.4572" y2="3.429" width="0.1524" layer="21"/>
+<wire x1="-0.4826" y1="3.429" x2="-0.4826" y2="5.969" width="0.1524" layer="21"/>
+<wire x1="-0.4826" y1="3.429" x2="-4.5466" y2="3.429" width="0.1524" layer="21"/>
+<wire x1="-4.5466" y1="3.429" x2="-4.5466" y2="5.969" width="0.1524" layer="21"/>
+<wire x1="-0.4826" y1="5.969" x2="-4.5466" y2="5.969" width="0.1524" layer="21"/>
+<wire x1="3.9574" y1="4.0849" x2="4.0131" y2="5.0545" width="0.1524" layer="21" curve="90.564135"/>
+<wire x1="1.016" y1="4.1656" x2="4.0038" y2="4.1189" width="0.1524" layer="21" curve="75.530157"/>
+<wire x1="0.8636" y1="5.0038" x2="4.0178" y2="5.0586" width="0.1524" layer="21" curve="-100.0232"/>
+<wire x1="0.9144" y1="5.0546" x2="1.0581" y2="4.1297" width="0.1524" layer="21" curve="104.208873"/>
+<wire x1="0.8636" y1="4.445" x2="3.9116" y2="5.08" width="0.1524" layer="21"/>
+<wire x1="0.9906" y1="4.318" x2="4.0386" y2="4.953" width="0.1524" layer="21"/>
+<wire x1="-1.0464" y1="4.0849" x2="-0.9907" y2="5.0545" width="0.1524" layer="21" curve="90.564135"/>
+<wire x1="-3.9878" y1="4.1656" x2="-1" y2="4.1188" width="0.1524" layer="21" curve="75.528719"/>
+<wire x1="-4.1402" y1="5.0038" x2="-0.9858" y2="5.0588" width="0.1524" layer="21" curve="-100.022513"/>
+<wire x1="-4.0894" y1="5.0546" x2="-3.9457" y2="4.1297" width="0.1524" layer="21" curve="104.208873"/>
+<wire x1="-4.1402" y1="4.445" x2="-1.0922" y2="5.08" width="0.1524" layer="21"/>
+<wire x1="-4.0132" y1="4.318" x2="-0.9652" y2="4.953" width="0.1524" layer="21"/>
+<wire x1="-4.5466" y1="0.254" x2="-4.1656" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="-0.4826" y1="0.254" x2="-0.8636" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="-0.8636" y1="0.254" x2="-4.1656" y2="0.254" width="0.1524" layer="51"/>
+<wire x1="-5.08" y1="0.635" x2="-4.1656" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-4.1656" y1="0.635" x2="-0.8636" y2="0.635" width="0.1524" layer="51"/>
+<wire x1="-0.8636" y1="0.635" x2="0.8382" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="5.08" y1="0.635" x2="4.1402" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="4.1402" y1="0.635" x2="0.8382" y2="0.635" width="0.1524" layer="51"/>
+<wire x1="4.5212" y1="0.254" x2="4.1402" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="0.4572" y1="0.254" x2="0.8382" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="0.8382" y1="0.254" x2="4.1402" y2="0.254" width="0.1524" layer="51"/>
+<pad name="1" x="-2.5146" y="0" drill="1.3208" shape="long" rot="R90"/>
+<pad name="2" x="2.4892" y="0" drill="1.3208" shape="long" rot="R90"/>
+<text x="-5.08" y="6.731" size="1.778" layer="25" ratio="10">&gt;NAME</text>
+<text x="-5.08" y="-8.636" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-4.4958" y="1.27" size="1.27" layer="21" ratio="10">1</text>
+<text x="0.5842" y="1.27" size="1.27" layer="21" ratio="10">2</text>
+<rectangle x1="-3.7846" y1="-2.54" x2="-1.2446" y2="0.254" layer="51"/>
+<rectangle x1="1.2192" y1="-2.54" x2="3.7592" y2="0.254" layer="51"/>
 </package>
 </packages>
 <symbols>
+<symbol name="KL">
+<circle x="1.27" y="0" radius="1.27" width="0.254" layer="94"/>
+<text x="-1.27" y="0.889" size="1.778" layer="95" rot="R180">&gt;NAME</text>
+<pin name="KL" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+</symbol>
 <symbol name="KLV">
 <circle x="1.27" y="0" radius="1.27" width="0.254" layer="94"/>
 <text x="-1.27" y="0.889" size="1.778" layer="95" rot="R180">&gt;NAME</text>
@@ -14668,14 +14726,14 @@ Conrad Elektronik Best. Nr. 729981 - 49</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="AK550/2" prefix="X">
+<deviceset name="AK300/2" prefix="X" uservalue="yes">
 <description>&lt;b&gt;CONNECTOR&lt;/b&gt;</description>
 <gates>
-<gate name="-1" symbol="KLV" x="0" y="0" addlevel="always" swaplevel="1"/>
-<gate name="-2" symbol="KLV" x="0" y="-5.08" addlevel="always" swaplevel="1"/>
+<gate name="-1" symbol="KL" x="0" y="5.08" addlevel="always"/>
+<gate name="-2" symbol="KLV" x="0" y="0" addlevel="always"/>
 </gates>
 <devices>
-<device name="" package="AK550/2">
+<device name="" package="AK300/2">
 <connects>
 <connect gate="-1" pin="KL" pad="1"/>
 <connect gate="-2" pin="KL" pad="2"/>
@@ -17180,7 +17238,7 @@ microswitch</description>
 <part name="SUPPLY3" library="supply2" deviceset="0V" device=""/>
 <part name="C18" library="rcl" deviceset="CPOL-EU" device="153CLV-0405" value="4.7uF"/>
 <part name="SUPPLY5" library="supply2" deviceset="0V" device=""/>
-<part name="X3" library="con-ptr500" deviceset="AK550/2" device="" value="PWR"/>
+<part name="X3" library="con-ptr500" deviceset="AK300/2" device="" value="PWR"/>
 <part name="F1" library="fuse" deviceset="SH22" device="" value="TF8A"/>
 <part name="SUPPLY6" library="supply2" deviceset="+12V" device=""/>
 <part name="SUPPLY7" library="supply2" deviceset="0V" device=""/>
@@ -17245,7 +17303,7 @@ microswitch</description>
 <part name="R2" library="rcl" deviceset="R-EU_" device="R0603" value="2kR"/>
 <part name="R6" library="rcl" deviceset="R-EU_" device="R0603" value="3kR"/>
 <part name="SUPPLY44" library="supply2" deviceset="0V" device=""/>
-<part name="X1" library="con-ptr500" deviceset="AK550/2" device="" value="LEFT"/>
+<part name="X1" library="con-ptr500" deviceset="AK300/2" device="" value="LEFT"/>
 <part name="U1" library="TI-DRV8801PWP" deviceset="DRV8801PWP" device=""/>
 <part name="SUPPLY45" library="supply2" deviceset="0V" device=""/>
 <part name="SUPPLY46" library="supply2" deviceset="0V" device=""/>
@@ -17282,7 +17340,7 @@ microswitch</description>
 <part name="R4" library="rcl" deviceset="R-EU_" device="R0603" value="2kR"/>
 <part name="R8" library="rcl" deviceset="R-EU_" device="R0603" value="3kR"/>
 <part name="SUPPLY65" library="supply2" deviceset="0V" device=""/>
-<part name="X2" library="con-ptr500" deviceset="AK550/2" device="" value="RIGHT"/>
+<part name="X2" library="con-ptr500" deviceset="AK300/2" device="" value="RIGHT"/>
 <part name="U2" library="TI-DRV8801PWP" deviceset="DRV8801PWP" device=""/>
 <part name="SUPPLY66" library="supply2" deviceset="0V" device=""/>
 <part name="SUPPLY67" library="supply2" deviceset="0V" device=""/>
