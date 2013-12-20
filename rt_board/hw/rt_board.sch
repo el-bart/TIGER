@@ -17239,7 +17239,7 @@ microswitch</description>
 <part name="R1" library="rcl" deviceset="R-EU_" device="R0603" value="2kR"/>
 <part name="R5" library="rcl" deviceset="R-EU_" device="R0603" value="3kR"/>
 <part name="SUPPLY41" library="supply2" deviceset="0V" device=""/>
-<part name="IC3/L1" library="allegro" deviceset="A12*?" device="UA" technology="02" value="TLE4935L"/>
+<part name="IC3/L2" library="allegro" deviceset="A12*?" device="UA" technology="02" value="TLE4935L"/>
 <part name="SUPPLY42" library="supply2" deviceset="0V" device=""/>
 <part name="SUPPLY43" library="supply2" deviceset="+5V/1" device="" value="+5V"/>
 <part name="R2" library="rcl" deviceset="R-EU_" device="R0603" value="2kR"/>
@@ -17270,13 +17270,13 @@ microswitch</description>
 <part name="SUPPLY57" library="supply2" deviceset="+12V" device=""/>
 <part name="C9" library="rcl" deviceset="C-EU" device="C1206" value="100nF"/>
 <part name="SUPPLY58" library="supply2" deviceset="0V" device=""/>
-<part name="IC4/L1" library="allegro" deviceset="A12*?" device="UA" technology="02" value="TLE4935L"/>
+<part name="IC4/R1" library="allegro" deviceset="A12*?" device="UA" technology="02" value="TLE4935L"/>
 <part name="SUPPLY60" library="supply2" deviceset="0V" device=""/>
 <part name="SUPPLY61" library="supply2" deviceset="+5V/1" device="" value="+5V"/>
 <part name="R3" library="rcl" deviceset="R-EU_" device="R0603" value="2kR"/>
 <part name="R7" library="rcl" deviceset="R-EU_" device="R0603" value="3kR"/>
 <part name="SUPPLY62" library="supply2" deviceset="0V" device=""/>
-<part name="IC5/L1" library="allegro" deviceset="A12*?" device="UA" technology="02" value="TLE4935L"/>
+<part name="IC5/R2" library="allegro" deviceset="A12*?" device="UA" technology="02" value="TLE4935L"/>
 <part name="SUPPLY63" library="supply2" deviceset="0V" device=""/>
 <part name="SUPPLY64" library="supply2" deviceset="+5V/1" device="" value="+5V"/>
 <part name="R4" library="rcl" deviceset="R-EU_" device="R0603" value="2kR"/>
@@ -17399,7 +17399,7 @@ microswitch</description>
 <instance part="R1" gate="G$1" x="-195.58" y="20.32"/>
 <instance part="R5" gate="G$1" x="-180.34" y="20.32"/>
 <instance part="SUPPLY41" gate="0V" x="-175.26" y="15.24"/>
-<instance part="IC3/L1" gate="G$1" x="-210.82" y="0"/>
+<instance part="IC3/L2" gate="G$1" x="-210.82" y="0"/>
 <instance part="SUPPLY42" gate="0V" x="-200.66" y="-5.08"/>
 <instance part="SUPPLY43" gate="G$1" x="-200.66" y="5.08"/>
 <instance part="R2" gate="G$1" x="-195.58" y="0"/>
@@ -17431,13 +17431,13 @@ microswitch</description>
 <instance part="SUPPLY57" gate="+12V" x="-142.24" y="-38.1"/>
 <instance part="C9" gate="G$1" x="-170.18" y="-22.86"/>
 <instance part="SUPPLY58" gate="0V" x="-177.8" y="-58.42"/>
-<instance part="IC4/L1" gate="G$1" x="-210.82" y="-137.16"/>
+<instance part="IC4/R1" gate="G$1" x="-210.82" y="-137.16"/>
 <instance part="SUPPLY60" gate="0V" x="-200.66" y="-142.24"/>
 <instance part="SUPPLY61" gate="G$1" x="-200.66" y="-132.08"/>
 <instance part="R3" gate="G$1" x="-195.58" y="-137.16"/>
 <instance part="R7" gate="G$1" x="-180.34" y="-137.16"/>
 <instance part="SUPPLY62" gate="0V" x="-175.26" y="-142.24"/>
-<instance part="IC5/L1" gate="G$1" x="-210.82" y="-157.48"/>
+<instance part="IC5/R2" gate="G$1" x="-210.82" y="-157.48"/>
 <instance part="SUPPLY63" gate="0V" x="-200.66" y="-162.56"/>
 <instance part="SUPPLY64" gate="G$1" x="-200.66" y="-152.4"/>
 <instance part="R4" gate="G$1" x="-195.58" y="-157.48"/>
@@ -17620,7 +17620,7 @@ microswitch</description>
 <wire x1="-175.26" y1="17.78" x2="-175.26" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC3/L1" gate="G$1" pin="GND"/>
+<pinref part="IC3/L2" gate="G$1" pin="GND"/>
 <pinref part="SUPPLY42" gate="0V" pin="0V"/>
 <wire x1="-203.2" y1="-2.54" x2="-200.66" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
@@ -17682,7 +17682,7 @@ microswitch</description>
 <wire x1="-177.8" y1="-55.88" x2="-180.34" y2="-55.88" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC4/L1" gate="G$1" pin="GND"/>
+<pinref part="IC4/R1" gate="G$1" pin="GND"/>
 <pinref part="SUPPLY60" gate="0V" pin="0V"/>
 <wire x1="-203.2" y1="-139.7" x2="-200.66" y2="-139.7" width="0.1524" layer="91"/>
 </segment>
@@ -17692,7 +17692,7 @@ microswitch</description>
 <wire x1="-175.26" y1="-139.7" x2="-175.26" y2="-137.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC5/L1" gate="G$1" pin="GND"/>
+<pinref part="IC5/R2" gate="G$1" pin="GND"/>
 <pinref part="SUPPLY63" gate="0V" pin="0V"/>
 <wire x1="-203.2" y1="-160.02" x2="-200.66" y2="-160.02" width="0.1524" layer="91"/>
 </segment>
@@ -18014,7 +18014,7 @@ microswitch</description>
 <wire x1="-200.66" y1="22.86" x2="-203.2" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC3/L1" gate="G$1" pin="VCC"/>
+<pinref part="IC3/L2" gate="G$1" pin="VCC"/>
 <pinref part="SUPPLY43" gate="G$1" pin="+5V/1"/>
 <wire x1="-200.66" y1="2.54" x2="-203.2" y2="2.54" width="0.1524" layer="91"/>
 </segment>
@@ -18027,12 +18027,12 @@ microswitch</description>
 <junction x="-180.34" y="-83.82"/>
 </segment>
 <segment>
-<pinref part="IC4/L1" gate="G$1" pin="VCC"/>
+<pinref part="IC4/R1" gate="G$1" pin="VCC"/>
 <pinref part="SUPPLY61" gate="G$1" pin="+5V/1"/>
 <wire x1="-200.66" y1="-134.62" x2="-203.2" y2="-134.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC5/L1" gate="G$1" pin="VCC"/>
+<pinref part="IC5/R2" gate="G$1" pin="VCC"/>
 <pinref part="SUPPLY64" gate="G$1" pin="+5V/1"/>
 <wire x1="-200.66" y1="-154.94" x2="-203.2" y2="-154.94" width="0.1524" layer="91"/>
 </segment>
@@ -18144,7 +18144,7 @@ microswitch</description>
 </net>
 <net name="N$18" class="0">
 <segment>
-<pinref part="IC3/L1" gate="G$1" pin="OUT"/>
+<pinref part="IC3/L2" gate="G$1" pin="OUT"/>
 <pinref part="R2" gate="G$1" pin="1"/>
 <wire x1="-200.66" y1="0" x2="-203.2" y2="0" width="0.1524" layer="91"/>
 </segment>
@@ -18242,7 +18242,7 @@ microswitch</description>
 </net>
 <net name="N$29" class="0">
 <segment>
-<pinref part="IC4/L1" gate="G$1" pin="OUT"/>
+<pinref part="IC4/R1" gate="G$1" pin="OUT"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="-200.66" y1="-137.16" x2="-203.2" y2="-137.16" width="0.1524" layer="91"/>
 </segment>
@@ -18263,7 +18263,7 @@ microswitch</description>
 </net>
 <net name="N$31" class="0">
 <segment>
-<pinref part="IC5/L1" gate="G$1" pin="OUT"/>
+<pinref part="IC5/R2" gate="G$1" pin="OUT"/>
 <pinref part="R4" gate="G$1" pin="1"/>
 <wire x1="-200.66" y1="-157.48" x2="-203.2" y2="-157.48" width="0.1524" layer="91"/>
 </segment>
