@@ -17326,6 +17326,18 @@ microswitch</description>
 <part name="C23" library="rcl" deviceset="CPOL-EU" device="153CLV-1014" value="1000uF"/>
 <part name="SUPPLY87" library="supply2" deviceset="+12V" device=""/>
 <part name="SUPPLY88" library="supply2" deviceset="0V" device=""/>
+<part name="C24" library="rcl" deviceset="C-EU" device="C1206" value="100nF"/>
+<part name="C25" library="rcl" deviceset="C-EU" device="C1206" value="100nF"/>
+<part name="C26" library="rcl" deviceset="C-EU" device="C1206" value="100nF"/>
+<part name="C27" library="rcl" deviceset="C-EU" device="C1206" value="100nF"/>
+<part name="SUPPLY89" library="supply2" deviceset="+5V/1" device="" value="+5V"/>
+<part name="SUPPLY90" library="supply2" deviceset="+5V/1" device="" value="+5V"/>
+<part name="SUPPLY91" library="supply2" deviceset="0V" device=""/>
+<part name="SUPPLY92" library="supply2" deviceset="0V" device=""/>
+<part name="SUPPLY93" library="supply2" deviceset="+5V/1" device="" value="+5V"/>
+<part name="SUPPLY94" library="supply2" deviceset="+5V/1" device="" value="+5V"/>
+<part name="SUPPLY95" library="supply2" deviceset="0V" device=""/>
+<part name="SUPPLY96" library="supply2" deviceset="0V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17491,6 +17503,18 @@ microswitch</description>
 <instance part="C23" gate="G$1" x="-106.68" y="147.32"/>
 <instance part="SUPPLY87" gate="+12V" x="-106.68" y="154.94"/>
 <instance part="SUPPLY88" gate="0V" x="-106.68" y="137.16"/>
+<instance part="C24" gate="G$1" x="-233.68" y="22.86"/>
+<instance part="C25" gate="G$1" x="-233.68" y="2.54"/>
+<instance part="C26" gate="G$1" x="-231.14" y="-137.16"/>
+<instance part="C27" gate="G$1" x="-231.14" y="-157.48"/>
+<instance part="SUPPLY89" gate="G$1" x="-226.06" y="-152.4"/>
+<instance part="SUPPLY90" gate="G$1" x="-226.06" y="-132.08"/>
+<instance part="SUPPLY91" gate="0V" x="-226.06" y="-144.78"/>
+<instance part="SUPPLY92" gate="0V" x="-226.06" y="-165.1"/>
+<instance part="SUPPLY93" gate="G$1" x="-228.6" y="27.94"/>
+<instance part="SUPPLY94" gate="G$1" x="-228.6" y="7.62"/>
+<instance part="SUPPLY95" gate="0V" x="-228.6" y="-5.08"/>
+<instance part="SUPPLY96" gate="0V" x="-228.6" y="15.24"/>
 </instances>
 <busses>
 </busses>
@@ -17784,6 +17808,26 @@ microswitch</description>
 <pinref part="SUPPLY88" gate="0V" pin="0V"/>
 <wire x1="-106.68" y1="139.7" x2="-106.68" y2="142.24" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="C26" gate="G$1" pin="2"/>
+<pinref part="SUPPLY91" gate="0V" pin="0V"/>
+<wire x1="-226.06" y1="-142.24" x2="-231.14" y2="-142.24" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C27" gate="G$1" pin="2"/>
+<pinref part="SUPPLY92" gate="0V" pin="0V"/>
+<wire x1="-226.06" y1="-162.56" x2="-231.14" y2="-162.56" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C25" gate="G$1" pin="2"/>
+<pinref part="SUPPLY95" gate="0V" pin="0V"/>
+<wire x1="-228.6" y1="-2.54" x2="-233.68" y2="-2.54" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C24" gate="G$1" pin="2"/>
+<pinref part="SUPPLY96" gate="0V" pin="0V"/>
+<wire x1="-228.6" y1="17.78" x2="-233.68" y2="17.78" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -18067,6 +18111,26 @@ microswitch</description>
 <pinref part="SUPPLY2" gate="G$1" pin="+5V/1"/>
 <junction x="-58.42" y="149.86"/>
 <wire x1="-58.42" y1="149.86" x2="-63.5" y2="149.86" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C27" gate="G$1" pin="1"/>
+<pinref part="SUPPLY89" gate="G$1" pin="+5V/1"/>
+<wire x1="-231.14" y1="-154.94" x2="-226.06" y2="-154.94" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C26" gate="G$1" pin="1"/>
+<pinref part="SUPPLY90" gate="G$1" pin="+5V/1"/>
+<wire x1="-231.14" y1="-134.62" x2="-226.06" y2="-134.62" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C24" gate="G$1" pin="1"/>
+<pinref part="SUPPLY93" gate="G$1" pin="+5V/1"/>
+<wire x1="-228.6" y1="25.4" x2="-233.68" y2="25.4" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C25" gate="G$1" pin="1"/>
+<pinref part="SUPPLY94" gate="G$1" pin="+5V/1"/>
+<wire x1="-228.6" y1="5.08" x2="-233.68" y2="5.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
