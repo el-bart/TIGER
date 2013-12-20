@@ -17323,6 +17323,9 @@ microswitch</description>
 <part name="LED3" library="led" deviceset="LED" device="CHIPLED_0603" value="GREEN"/>
 <part name="R19" library="rcl" deviceset="R-EU_" device="R0603" value="240R"/>
 <part name="SUPPLY83" library="supply2" deviceset="+5V" device="" value="+3.3V"/>
+<part name="C23" library="rcl" deviceset="CPOL-EU" device="153CLV-1014" value="1000uF"/>
+<part name="SUPPLY87" library="supply2" deviceset="+12V" device=""/>
+<part name="SUPPLY88" library="supply2" deviceset="0V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17485,6 +17488,9 @@ microswitch</description>
 <instance part="LED3" gate="G$1" x="38.1" y="91.44"/>
 <instance part="R19" gate="G$1" x="38.1" y="101.6" rot="R270"/>
 <instance part="SUPPLY83" gate="+5V" x="38.1" y="111.76"/>
+<instance part="C23" gate="G$1" x="-106.68" y="147.32"/>
+<instance part="SUPPLY87" gate="+12V" x="-106.68" y="154.94"/>
+<instance part="SUPPLY88" gate="0V" x="-106.68" y="137.16"/>
 </instances>
 <busses>
 </busses>
@@ -17773,6 +17779,11 @@ microswitch</description>
 <pinref part="SUPPLY86" gate="0V" pin="0V"/>
 <wire x1="-86.36" y1="78.74" x2="-83.82" y2="78.74" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="C23" gate="G$1" pin="-"/>
+<pinref part="SUPPLY88" gate="0V" pin="0V"/>
+<wire x1="-106.68" y1="139.7" x2="-106.68" y2="142.24" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -17900,6 +17911,11 @@ microswitch</description>
 <pinref part="C12" gate="G$1" pin="1"/>
 <pinref part="SUPPLY78" gate="+12V" pin="+12V"/>
 <wire x1="-142.24" y1="-198.12" x2="-142.24" y2="-200.66" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C23" gate="G$1" pin="+"/>
+<pinref part="SUPPLY87" gate="+12V" pin="+12V"/>
+<wire x1="-106.68" y1="152.4" x2="-106.68" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
