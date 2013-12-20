@@ -17117,87 +17117,6 @@ Source: www.kingbright.com</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="2n7002">
-<packages>
-<package name="SOT65P210X110-3N">
-<smd name="1" x="-0.9398" y="0.6604" dx="1.1684" dy="0.4572" layer="1"/>
-<smd name="2" x="-0.9398" y="-0.6604" dx="1.1684" dy="0.4572" layer="1"/>
-<smd name="3" x="0.9398" y="0" dx="1.1684" dy="0.4572" layer="1"/>
-<wire x1="0.6858" y1="0.5588" x2="0.6858" y2="1.0922" width="0.1524" layer="21"/>
-<wire x1="-0.127" y1="-1.0922" x2="0.6858" y2="-1.0922" width="0.1524" layer="21"/>
-<wire x1="0.6858" y1="-1.0922" x2="0.6858" y2="-0.5588" width="0.1524" layer="21"/>
-<wire x1="0.6858" y1="1.0922" x2="0.3048" y2="1.0922" width="0.1524" layer="21"/>
-<wire x1="0.3048" y1="1.0922" x2="-0.127" y2="1.0922" width="0.1524" layer="21"/>
-<wire x1="-0.6858" y1="0.1016" x2="-0.6858" y2="-0.1016" width="0.1524" layer="21"/>
-<wire x1="0.3048" y1="1.0922" x2="-0.0254" y2="0.7874" width="0.1524" layer="21" curve="-97"/>
-<text x="-1.778" y="0.9652" size="1.27" layer="21" ratio="6" rot="SR0">*</text>
-<wire x1="-0.6858" y1="-1.0922" x2="0.6858" y2="-1.0922" width="0" layer="51"/>
-<wire x1="0.6858" y1="-1.0922" x2="0.6858" y2="-0.2032" width="0" layer="51"/>
-<wire x1="0.6858" y1="-0.2032" x2="0.6858" y2="0.2032" width="0" layer="51"/>
-<wire x1="0.6858" y1="0.2032" x2="0.6858" y2="1.0922" width="0" layer="51"/>
-<wire x1="0.6858" y1="1.0922" x2="0.3048" y2="1.0922" width="0" layer="51"/>
-<wire x1="0.3048" y1="1.0922" x2="-0.3048" y2="1.0922" width="0" layer="51"/>
-<wire x1="-0.3048" y1="1.0922" x2="-0.6858" y2="1.0922" width="0" layer="51"/>
-<wire x1="-0.6858" y1="1.0922" x2="-0.6858" y2="0.8382" width="0" layer="51"/>
-<wire x1="-0.6858" y1="0.8382" x2="-0.6858" y2="0.4572" width="0" layer="51"/>
-<wire x1="-0.6858" y1="0.4572" x2="-0.6858" y2="-0.4572" width="0" layer="51"/>
-<wire x1="-0.6858" y1="0.8382" x2="-1.0922" y2="0.8382" width="0" layer="51"/>
-<wire x1="-1.0922" y1="0.8382" x2="-1.0922" y2="0.4572" width="0" layer="51"/>
-<wire x1="-1.0922" y1="0.4572" x2="-0.6858" y2="0.4572" width="0" layer="51"/>
-<wire x1="-0.6858" y1="-1.0922" x2="-0.6858" y2="-0.8382" width="0" layer="51"/>
-<wire x1="-0.6858" y1="-0.8382" x2="-0.6858" y2="-0.4572" width="0" layer="51"/>
-<wire x1="-0.6858" y1="-0.4572" x2="-1.0922" y2="-0.4572" width="0" layer="51"/>
-<wire x1="-1.0922" y1="-0.4572" x2="-1.0922" y2="-0.8382" width="0" layer="51"/>
-<wire x1="-1.0922" y1="-0.8382" x2="-0.6858" y2="-0.8382" width="0" layer="51"/>
-<wire x1="0.6858" y1="-0.2032" x2="1.0922" y2="-0.2032" width="0" layer="51"/>
-<wire x1="1.0922" y1="-0.2032" x2="1.0922" y2="0.2032" width="0" layer="51"/>
-<wire x1="1.0922" y1="0.2032" x2="0.6858" y2="0.2032" width="0" layer="51"/>
-<wire x1="0.3048" y1="1.0922" x2="-0.3048" y2="1.0922" width="0" layer="51" curve="-180"/>
-<text x="-1.778" y="0.9652" size="1.27" layer="51" ratio="6" rot="SR0">*</text>
-<text x="-3.4544" y="1.905" size="2.0828" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
-<text x="-3.4544" y="-3.81" size="2.0828" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
-</package>
-</packages>
-<symbols>
-<symbol name="2N7002BKW">
-<pin name="SOURCE" x="0" y="0" length="middle" direction="pas"/>
-<pin name="GATE" x="0" y="-5.08" length="middle" direction="pas"/>
-<pin name="DRAIN" x="35.56" y="0" length="middle" direction="pas" rot="R180"/>
-<wire x1="5.08" y1="5.08" x2="5.08" y2="-10.16" width="0.127" layer="94"/>
-<wire x1="5.08" y1="-10.16" x2="30.48" y2="-10.16" width="0.127" layer="94"/>
-<wire x1="30.48" y1="-10.16" x2="30.48" y2="5.08" width="0.127" layer="94"/>
-<wire x1="30.48" y1="5.08" x2="5.08" y2="5.08" width="0.127" layer="94"/>
-<text x="11.8872" y="7.112" size="2.0828" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
-<text x="14.4018" y="-12.9286" size="2.0828" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="2N7002BKW" prefix="U">
-<description>N-channel Trench MOSFET</description>
-<gates>
-<gate name="A" symbol="2N7002BKW" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT65P210X110-3N">
-<connects>
-<connect gate="A" pin="DRAIN" pad="3"/>
-<connect gate="A" pin="GATE" pad="1"/>
-<connect gate="A" pin="SOURCE" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="MPN" value="2N7002BKW" constant="no"/>
-<attribute name="OC_FARNELL" value="1894713" constant="no"/>
-<attribute name="OC_NEWARK" value="55T7739" constant="no"/>
-<attribute name="PACKAGE" value="SOT-3" constant="no"/>
-<attribute name="SUPPLIER" value="NXP Semiconductors" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="basz">
 <packages>
 <package name="SPST-NO">
@@ -17394,14 +17313,13 @@ microswitch</description>
 <part name="R17" library="rcl" deviceset="R-EU_" device="R0603" value="470R"/>
 <part name="SUPPLY59" library="supply2" deviceset="+5V" device="" value="+3.3V"/>
 <part name="SUPPLY80" library="supply2" deviceset="0V" device=""/>
-<part name="U7" library="2n7002" deviceset="2N7002BKW" device=""/>
-<part name="SUPPLY83" library="supply2" deviceset="0V" device=""/>
 <part name="LED2" library="led" deviceset="LED" device="CHIPLED_0603" value="GREEN"/>
 <part name="SUPPLY84" library="supply2" deviceset="+5V" device="" value="+3.3V"/>
 <part name="SW1" library="basz" deviceset="B3U-1000PM-B" device=""/>
 <part name="SW2" library="basz" deviceset="B3U-1000PM-B" device=""/>
 <part name="SUPPLY85" library="supply2" deviceset="+5V" device="" value="+3.3V"/>
 <part name="SUPPLY86" library="supply2" deviceset="0V" device=""/>
+<part name="R18" library="rcl" deviceset="R-EU_" device="R0603" value="240R"/>
 </parts>
 <sheets>
 <sheet>
@@ -17554,14 +17472,13 @@ microswitch</description>
 <instance part="R17" gate="G$1" x="-2.54" y="149.86" rot="R270"/>
 <instance part="SUPPLY59" gate="+5V" x="-2.54" y="160.02"/>
 <instance part="SUPPLY80" gate="0V" x="-2.54" y="129.54"/>
-<instance part="U7" gate="A" x="78.74" y="111.76"/>
-<instance part="SUPPLY83" gate="0V" x="73.66" y="109.22"/>
-<instance part="LED2" gate="G$1" x="114.3" y="124.46"/>
-<instance part="SUPPLY84" gate="+5V" x="114.3" y="132.08"/>
+<instance part="LED2" gate="G$1" x="27.94" y="91.44"/>
+<instance part="SUPPLY84" gate="+5V" x="27.94" y="111.76"/>
 <instance part="SW1" gate="G$1" x="-104.14" y="83.82" rot="R90"/>
 <instance part="SW2" gate="G$1" x="-86.36" y="86.36" rot="R90"/>
 <instance part="SUPPLY85" gate="+5V" x="-104.14" y="96.52"/>
 <instance part="SUPPLY86" gate="0V" x="-83.82" y="76.2"/>
+<instance part="R18" gate="G$1" x="27.94" y="101.6" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -17846,11 +17763,6 @@ microswitch</description>
 <wire x1="-2.54" y1="132.08" x2="-2.54" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U7" gate="A" pin="SOURCE"/>
-<pinref part="SUPPLY83" gate="0V" pin="0V"/>
-<wire x1="73.66" y1="111.76" x2="78.74" y2="111.76" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="SW2" gate="G$1" pin="P$1"/>
 <pinref part="SUPPLY86" gate="0V" pin="0V"/>
 <wire x1="-86.36" y1="78.74" x2="-83.82" y2="78.74" width="0.1524" layer="91"/>
@@ -17926,14 +17838,14 @@ microswitch</description>
 <wire x1="-2.54" y1="157.48" x2="-2.54" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="LED2" gate="G$1" pin="A"/>
-<pinref part="SUPPLY84" gate="+5V" pin="+5V"/>
-<wire x1="114.3" y1="129.54" x2="114.3" y2="127" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="SW1" gate="G$1" pin="P$2"/>
 <pinref part="SUPPLY85" gate="+5V" pin="+5V"/>
 <wire x1="-104.14" y1="91.44" x2="-104.14" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R18" gate="G$1" pin="1"/>
+<pinref part="SUPPLY84" gate="+5V" pin="+5V"/>
+<wire x1="27.94" y1="109.22" x2="27.94" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -18503,19 +18415,18 @@ microswitch</description>
 <wire x1="-2.54" y1="144.78" x2="-2.54" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$44" class="0">
+<net name="N$1" class="0">
 <segment>
 <pinref part="U6" gate="A" pin="PB0"/>
-<pinref part="U7" gate="A" pin="GATE"/>
-<wire x1="20.32" y1="86.36" x2="78.74" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="78.74" y1="86.36" x2="78.74" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="LED2" gate="G$1" pin="C"/>
+<wire x1="27.94" y1="86.36" x2="20.32" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$47" class="0">
+<net name="N$44" class="0">
 <segment>
-<pinref part="U7" gate="A" pin="DRAIN"/>
-<pinref part="LED2" gate="G$1" pin="C"/>
-<wire x1="114.3" y1="119.38" x2="114.3" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="LED2" gate="G$1" pin="A"/>
+<pinref part="R18" gate="G$1" pin="2"/>
+<wire x1="27.94" y1="96.52" x2="27.94" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
