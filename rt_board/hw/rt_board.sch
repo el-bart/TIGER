@@ -17373,9 +17373,7 @@ microswitch</description>
 <part name="SUPPLY80" library="supply2" deviceset="0V" device=""/>
 <part name="LED2" library="led" deviceset="LED" device="CHIPLED_0603" value="GREEN"/>
 <part name="SUPPLY84" library="supply2" deviceset="+5V" device="" value="+3.3V"/>
-<part name="SW1" library="basz" deviceset="B3U-1000PM-B" device=""/>
 <part name="SW2" library="basz" deviceset="B3U-1000PM-B" device=""/>
-<part name="SUPPLY85" library="supply2" deviceset="+5V" device="" value="+3.3V"/>
 <part name="SUPPLY86" library="supply2" deviceset="0V" device=""/>
 <part name="R18" library="rcl" deviceset="R-EU_" device="R0603" value="240R"/>
 <part name="LED3" library="led" deviceset="LED" device="CHIPLED_0603" value="GREEN"/>
@@ -17421,8 +17419,8 @@ microswitch</description>
 <instance part="C21" gate="G$1" x="35.56" y="142.24"/>
 <instance part="SUPPLY8" gate="+5V" x="30.48" y="147.32"/>
 <instance part="SUPPLY9" gate="0V" x="30.48" y="134.62"/>
-<instance part="R13" gate="G$1" x="-104.14" y="66.04" rot="R90"/>
-<instance part="SUPPLY10" gate="0V" x="-104.14" y="55.88"/>
+<instance part="R13" gate="G$1" x="-60.96" y="71.12"/>
+<instance part="SUPPLY10" gate="0V" x="-68.58" y="63.5"/>
 <instance part="R14" gate="G$1" x="-68.58" y="99.06" rot="R270"/>
 <instance part="C13" gate="G$1" x="-68.58" y="88.9"/>
 <instance part="Q1" gate="P" x="-60.96" y="58.42"/>
@@ -17550,10 +17548,8 @@ microswitch</description>
 <instance part="SUPPLY80" gate="0V" x="-2.54" y="129.54"/>
 <instance part="LED2" gate="G$1" x="27.94" y="91.44"/>
 <instance part="SUPPLY84" gate="+5V" x="27.94" y="111.76"/>
-<instance part="SW1" gate="G$1" x="-104.14" y="83.82" rot="R90"/>
 <instance part="SW2" gate="G$1" x="-86.36" y="86.36" rot="R90"/>
-<instance part="SUPPLY85" gate="+5V" x="-104.14" y="96.52"/>
-<instance part="SUPPLY86" gate="0V" x="-83.82" y="76.2"/>
+<instance part="SUPPLY86" gate="0V" x="-86.36" y="73.66"/>
 <instance part="R18" gate="G$1" x="27.94" y="101.6" rot="R270"/>
 <instance part="LED3" gate="G$1" x="38.1" y="91.44"/>
 <instance part="R19" gate="G$1" x="38.1" y="101.6" rot="R270"/>
@@ -17615,7 +17611,8 @@ microswitch</description>
 <segment>
 <pinref part="R13" gate="G$1" pin="1"/>
 <pinref part="SUPPLY10" gate="0V" pin="0V"/>
-<wire x1="-104.14" y1="58.42" x2="-104.14" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="-68.58" y1="66.04" x2="-68.58" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-68.58" y1="71.12" x2="-66.04" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C13" gate="G$1" pin="2"/>
@@ -17859,7 +17856,7 @@ microswitch</description>
 <segment>
 <pinref part="SW2" gate="G$1" pin="P$1"/>
 <pinref part="SUPPLY86" gate="0V" pin="0V"/>
-<wire x1="-86.36" y1="78.74" x2="-83.82" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="-86.36" y1="78.74" x2="-86.36" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C23" gate="G$1" pin="-"/>
@@ -17957,11 +17954,6 @@ microswitch</description>
 <wire x1="-2.54" y1="157.48" x2="-2.54" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="SW1" gate="G$1" pin="P$2"/>
-<pinref part="SUPPLY85" gate="+5V" pin="+5V"/>
-<wire x1="-104.14" y1="91.44" x2="-104.14" y2="93.98" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="R18" gate="G$1" pin="1"/>
 <pinref part="SUPPLY84" gate="+5V" pin="+5V"/>
 <wire x1="27.94" y1="109.22" x2="27.94" y2="106.68" width="0.1524" layer="91"/>
@@ -18031,10 +18023,7 @@ microswitch</description>
 <segment>
 <pinref part="U6" gate="A" pin="BOOT0"/>
 <pinref part="R13" gate="G$1" pin="2"/>
-<wire x1="-104.14" y1="71.12" x2="-25.4" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="SW1" gate="G$1" pin="P$1"/>
-<wire x1="-104.14" y1="76.2" x2="-104.14" y2="71.12" width="0.1524" layer="91"/>
-<junction x="-104.14" y="71.12"/>
+<wire x1="-55.88" y1="71.12" x2="-25.4" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -18606,14 +18595,14 @@ microswitch</description>
 <approved hash="104,1,-190.5,73.66,U3,VCCB,+5V,,,"/>
 <approved hash="104,1,-203.2,22.86,IC2/L1,VCC,+5V/1,,,"/>
 <approved hash="104,1,-203.2,17.78,IC2/L1,GND,0V,,,"/>
-<approved hash="104,1,-203.2,2.54,IC3/L1,VCC,+5V/1,,,"/>
-<approved hash="104,1,-203.2,-2.54,IC3/L1,GND,0V,,,"/>
+<approved hash="104,1,-203.2,2.54,IC3/L2,VCC,+5V/1,,,"/>
+<approved hash="104,1,-203.2,-2.54,IC3/L2,GND,0V,,,"/>
 <approved hash="104,1,-180.34,-20.32,U1,VBB,+12V,,,"/>
 <approved hash="104,1,-165.1,-83.82,U4,VCC,+5V/1,,,"/>
-<approved hash="104,1,-203.2,-134.62,IC4/L1,VCC,+5V/1,,,"/>
-<approved hash="104,1,-203.2,-139.7,IC4/L1,GND,0V,,,"/>
-<approved hash="104,1,-203.2,-154.94,IC5/L1,VCC,+5V/1,,,"/>
-<approved hash="104,1,-203.2,-160.02,IC5/L1,GND,0V,,,"/>
+<approved hash="104,1,-203.2,-134.62,IC4/R1,VCC,+5V/1,,,"/>
+<approved hash="104,1,-203.2,-139.7,IC4/R1,GND,0V,,,"/>
+<approved hash="104,1,-203.2,-154.94,IC5/R2,VCC,+5V/1,,,"/>
+<approved hash="104,1,-203.2,-160.02,IC5/R2,GND,0V,,,"/>
 <approved hash="104,1,-180.34,-177.8,U2,VBB,+12V,,,"/>
 <approved hash="104,1,-165.1,-241.3,U5,VCC,+5V/1,,,"/>
 <approved hash="209,1,-165.1,-88.9,N$22,,,,,"/>
