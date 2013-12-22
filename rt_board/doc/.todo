@@ -36,6 +36,12 @@
     <note priority="medium" time="1387381069" done="1387382336">
         add boot0 switch
     </note>
+    <note priority="low" time="1387544773" done="1387619882">
+        remove button for boot0 - w/o PA9 it won't be possible to program from Panda any way
+        <comment>
+            removed
+        </comment>
+    </note>
     <note priority="verylow" time="1387379463" done="1387544807">
         consider using led driver instead of transistors and resistors for multiple leds
         <comment>
@@ -45,13 +51,10 @@
     <note priority="medium" time="1386697683">
         prepare protocol for communication
     </note>
-    <note priority="medium" time="1387374323">
+    <note priority="medium" time="1387374323" done="1387717592">
         add protections against inverse voltage connection
-    </note>
-    <note priority="low" time="1387544773" done="1387619882">
-        remove button for boot0 - w/o PA9 it won't be possible to program from Panda any way
         <comment>
-            removed
+            protection will be aded on the main power board
         </comment>
     </note>
 </todo>
