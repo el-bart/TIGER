@@ -27,6 +27,16 @@ USART (Panda):
    - PA2 (TX)
    - PA3 (RX)
 
+
 LEDs:
  - user1 (PB0)
  - user2 (PB1)
+
+
+Ext-1:
+ - pin 1 (PA6)
+ - pin 2 (PA7)
+ - pin 3 (GND)
+ - pin 4 (PC4)
+ - pin 5 (+3.3V)
+ - pin 6 (PC5)

@@ -17394,6 +17394,9 @@ microswitch</description>
 <part name="SUPPLY94" library="supply2" deviceset="+5V/1" device="" value="+5V"/>
 <part name="SUPPLY95" library="supply2" deviceset="0V" device=""/>
 <part name="SUPPLY96" library="supply2" deviceset="0V" device=""/>
+<part name="SUPPLY98" library="supply2" deviceset="0V" device=""/>
+<part name="SV4" library="con-lstb" deviceset="MA03-2" device="" value="Ext-1"/>
+<part name="SUPPLY85" library="supply2" deviceset="+5V" device="" value="+3.3V"/>
 </parts>
 <sheets>
 <sheet>
@@ -17445,8 +17448,8 @@ microswitch</description>
 <instance part="SUPPLY34" gate="+5V" x="-78.74" y="-7.62"/>
 <instance part="R16" gate="G$1" x="-48.26" y="-5.08" rot="R90"/>
 <instance part="SUPPLY35" gate="0V" x="-48.26" y="-12.7"/>
-<instance part="R15" gate="G$1" x="-58.42" y="10.16" rot="R90"/>
-<instance part="SUPPLY36" gate="+5V" x="-58.42" y="20.32"/>
+<instance part="R15" gate="G$1" x="-68.58" y="10.16" rot="R90"/>
+<instance part="SUPPLY36" gate="+5V" x="-68.58" y="20.32"/>
 <instance part="U3" gate="A" x="-172.72" y="66.04"/>
 <instance part="SV1" gate="1" x="-129.54" y="111.76" rot="R180"/>
 <instance part="SUPPLY37" gate="G$1" x="-119.38" y="129.54"/>
@@ -17569,6 +17572,9 @@ microswitch</description>
 <instance part="SUPPLY94" gate="G$1" x="-228.6" y="7.62"/>
 <instance part="SUPPLY95" gate="0V" x="-228.6" y="-5.08"/>
 <instance part="SUPPLY96" gate="0V" x="-228.6" y="15.24"/>
+<instance part="SUPPLY98" gate="0V" x="111.76" y="35.56"/>
+<instance part="SV4" gate="1" x="96.52" y="38.1"/>
+<instance part="SUPPLY85" gate="+5V" x="111.76" y="43.18"/>
 </instances>
 <busses>
 </busses>
@@ -17883,6 +17889,11 @@ microswitch</description>
 <pinref part="SUPPLY96" gate="0V" pin="0V"/>
 <wire x1="-228.6" y1="17.78" x2="-233.68" y2="17.78" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="SUPPLY98" gate="0V" pin="0V"/>
+<wire x1="111.76" y1="38.1" x2="104.14" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="SV4" gate="1" pin="3"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -17941,7 +17952,7 @@ microswitch</description>
 <segment>
 <pinref part="R15" gate="G$1" pin="2"/>
 <pinref part="SUPPLY36" gate="+5V" pin="+5V"/>
-<wire x1="-58.42" y1="15.24" x2="-58.42" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="-68.58" y1="15.24" x2="-68.58" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U3" gate="A" pin="VCCB"/>
@@ -17962,6 +17973,11 @@ microswitch</description>
 <pinref part="R19" gate="G$1" pin="1"/>
 <pinref part="SUPPLY83" gate="+5V" pin="+5V"/>
 <wire x1="38.1" y1="109.22" x2="38.1" y2="106.68" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="111.76" y1="40.64" x2="104.14" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="SV4" gate="1" pin="5"/>
+<pinref part="SUPPLY85" gate="+5V" pin="+5V"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -18095,11 +18111,11 @@ microswitch</description>
 <pinref part="U6" gate="A" pin="PA13(SWDAT)"/>
 <wire x1="-25.4" y1="10.16" x2="-50.8" y2="10.16" width="0.1524" layer="91"/>
 <wire x1="-50.8" y1="10.16" x2="-50.8" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="-50.8" y1="5.08" x2="-58.42" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="-50.8" y1="5.08" x2="-68.58" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="SV2" gate="1" pin="4"/>
-<wire x1="-58.42" y1="5.08" x2="-81.28" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="-68.58" y1="5.08" x2="-81.28" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="R15" gate="G$1" pin="1"/>
-<junction x="-58.42" y="5.08"/>
+<junction x="-68.58" y="5.08"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -18580,6 +18596,50 @@ microswitch</description>
 <pinref part="LED3" gate="G$1" pin="A"/>
 <pinref part="R19" gate="G$1" pin="2"/>
 <wire x1="38.1" y1="96.52" x2="38.1" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$52" class="0">
+<segment>
+<pinref part="U6" gate="A" pin="PC5"/>
+<wire x1="20.32" y1="38.1" x2="76.2" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="38.1" x2="76.2" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="40.64" x2="88.9" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="SV4" gate="1" pin="6"/>
+</segment>
+</net>
+<net name="N$53" class="0">
+<segment>
+<pinref part="U6" gate="A" pin="PC4"/>
+<wire x1="20.32" y1="40.64" x2="73.66" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="40.64" x2="73.66" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="43.18" x2="81.28" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="43.18" x2="81.28" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="38.1" x2="88.9" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="SV4" gate="1" pin="4"/>
+</segment>
+</net>
+<net name="N$54" class="0">
+<segment>
+<pinref part="U6" gate="A" pin="PA7"/>
+<wire x1="-25.4" y1="30.48" x2="-55.88" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="30.48" x2="-55.88" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="-33.02" x2="76.2" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="-33.02" x2="76.2" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="35.56" x2="88.9" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="SV4" gate="1" pin="2"/>
+</segment>
+</net>
+<net name="N$55" class="0">
+<segment>
+<pinref part="U6" gate="A" pin="PA6"/>
+<wire x1="-25.4" y1="33.02" x2="-58.42" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="-58.42" y1="33.02" x2="-58.42" y2="-35.56" width="0.1524" layer="91"/>
+<wire x1="-58.42" y1="-35.56" x2="78.74" y2="-35.56" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="-35.56" x2="78.74" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="27.94" x2="106.68" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="27.94" x2="106.68" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="35.56" x2="104.14" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="SV4" gate="1" pin="1"/>
 </segment>
 </net>
 </nets>
