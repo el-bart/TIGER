@@ -48,7 +48,7 @@ size: main.elf
 
 .PHONY: flash
 flash: main.bin
-	st-flash write $< 0x8000000
+	st-flash --reset write $< 0x8000000
 
 .PHONY: debug
 debug: main.elf
